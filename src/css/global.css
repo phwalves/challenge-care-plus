@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Inter";
+  src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: radial-gradient(50% 50% at 50% 50%, #fcfcfc 0%, #eee 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
