@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Plus - Login</title>
+
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <main class="login">
+
+        <form action="#">
+
+            <!-- Tela de colocar o nome e nascimento -->
+            <fieldset class="userId">
+                <div class="mensagem">
+                    <div class="card-header">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                <polyline points="10 17 15 12 10 7"></polyline>
+                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                            </svg>
+                        </span>
+                        <h2 class="title">Seja bem-vindo!</h2>
+                    </div>
+                    <p class="description">
+                        Para iniciar sua experiência na Care Plus, faça o login no aplicativo
+                    </p>
+                </div>
+
+                <label for="name">Nome</label>
+                <input id="name" type="text" name="userName" placeholder="Digite seu nome" required>
+
+                <div class="date-input">
+                    <label for="date">Data de Nascimento</label>
+                    <input id="date" type="text" class="date-input" name="userBirthDate" placeholder="Selecione a data"
+                        readonly required>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="button" class="btn-voltar">Voltar</button>
+                    <button type="button" class="btn-avancar">Avançar</button>
+                </div>
+
+                <footer class="breadcrumb">
+                    <h3 class="texto"><strong class="atual">Identificação</strong> > Registro > Telefone</h3>
+                </footer>
+
+            </fieldset>
+
+            <!-- Tela de preencher email e senha -->
+            <fieldset class="userEmail">
+                <div class="mensagem">
+                    <div class="card-header">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                <polyline points="10 17 15 12 10 7"></polyline>
+                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                            </svg>
+                        </span>
+                        <h2 class="title">Quase lá!</h2>
+                    </div>
+                    <p class="description">
+                        Agora precisamos de informações para contato
+                    </p>
+                </div>
+
+                <label for="email">Email</label>
+                <input id="email" type="email" name="userEmail" placeholder="Digite seu email" required>
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" name="userPassword"
+                    placeholder="Digite sua senha (use letras e números)" required>
+
+                <div class="botoes-acao">
+                    <button type="button" class="btn-voltar">Voltar</button>
+                    <button type="button" class="btn-avancar">Avançar</button>
+                </div>
+
+                <footer class="breadcrumb">
+                    <h3 class="texto">Identificação > <strong class="atual">Registro</strong> > Telefone</h3>
+                </footer>
+
+            </fieldset>
+
+            <!-- Tela pra colocar telefone e marcar se é maior de idade, também avança pros termos de uso -->
+            <fieldset class="userContact ativo">
+                <div class="mensagem">
+                    <div class="card-header">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                <polyline points="10 17 15 12 10 7"></polyline>
+                                <line x1="15" y1="12" x2="3" y2="12"></line>
+                            </svg>
+                        </span>
+                        <h2 class="title">Só mais um passo</h2>
+                    </div>
+                    <p class="description">
+                        Preencha seu telefone e responda o questionário
+                    </p>
+                </div>
+
+                <label for="phoneNumber">Telefone</label>
+                <input id="phoneNumber" type="tel" name="userPhoneNo" placeholder="Digite seu telefone com DDD"
+                    required>
+                <label for="idade">Essa conta é de um maior de idade?</label>
+                <div class="radio-group">
+                    <input id="maiorIdade" type="radio" name="idade" value="sim">
+                    <label for="maiorIdade">Sim, sou maior de idade</label>
+
+                    <input id="menorIdade" type="radio" name="idade" value="nao">
+                    <label for="menorIdade">Não, sou menor de idade</label>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="button" class="btn-voltar">Voltar</button>
+                    <button type="button" class="btn-avancar">Avançar</button>
+                </div>
+
+                <footer class="breadcrumb">
+                    <h3 class="texto">Identificação > Registro > <strong class="atual">Telefone</strong></h3>
+                </footer>
+
+            </fieldset>
+
+            <!-- essa classe é pra englobar a parte de termos de uso e sistema de níveis -->
+            <fieldset class="termsAndSystem">
+                <div class="mensagem">
+                    <h2 class="title">Termos de Uso e Sistema de níveis</h2>
+                    <p>Estamos quase terminando. Agora aceite os termos de uso e conheca como funciona nosso
+                        sistema de níveis.</p>
+                </div>
+
+                <!-- aqui é pra marcar os termos -->
+                <input id="acceptTerms" type="checkbox" name="userTerms" value="terms">
+                <label for="acceptTerms">Eu aceito os <span class="link-modal">Termos de Uso</span></label>
+                <div class="termsOfUse">
+                    <h4>Termos de Uso</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                        galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five
+                        centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                        passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions
+                        of
+                        Lorem Ipsum.</p>
+                    <button type="button">Fechar</button>
+                </div>
+
+
+                <input id="acceptLevels" type="checkbox" name="userLevels" value="levels">
+                <label for="acceptLevels">Eu aceito o <span class="link-modal">Sistema de níveis</span></label>
+                <div class="termsOfUse">
+                    <h4>Sistema de níveis</h4>
+                    <p>O sistema atribui pontuações com base em critérios objetivos — como cumprimento de prazos,
+                        confiabilidade nas informações e nível de engajamento — resultando em níveis de reputação
+                        que
+                        definem o perfil operacional do cliente dentro da aplicação.</p>
+                    <p>Usuários com alto índice de reputação obtêm acesso a benefícios progressivos, recursos
+                        exclusivos
+                        e menores restrições operacionais, enquanto perfis com registros inconsistentes ficam
+                        sujeitos a
+                        políticas mais restritivas e verificações adicionais.</p>
+                    <p>A arquitetura do módulo é adaptativa, ajustando-se dinamicamente conforme o comportamento do
+                        usuário evolui. Essa abordagem assegura uma experiência mais fluida e flexível para clientes
+                        recorrentes e maduros, ao mesmo tempo em que aplica controle mais rigoroso a usuários com
+                        padrões inconsistentes — mantendo o equilíbrio entre usabilidade e segurança.</p>
+                    <button type="button">Fechar</button>
+                </div>
+
+                <div class="botoes-acao">
+                    <button type="button" class="btn-voltar">Voltar</button>
+                    <button type="submit" class="btn-avancar">Salvar</button>
+                </div>
+
+            </fieldset>
+        </form>
+    </main>
+</body>
+
+</html>
