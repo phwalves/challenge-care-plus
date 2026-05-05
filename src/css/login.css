@@ -189,6 +189,17 @@ input[type="checkbox"]:checked::before {
   color: #333;
 }
 
+.btn-voltar-disabled {
+  min-width: 92px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+  cursor: none;
+  pointer-events: none;
+  filter: brightness(0.5);
+}
+
 .btn-avancar {
   min-width: 92px;
   background: #092437;

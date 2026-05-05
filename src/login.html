@@ -14,7 +14,7 @@
 
         <form action="#">
 
-            <fieldset class="userId">
+            <fieldset class="userId ativo">
                 <div class="mensagem">
                     <div class="card-header">
                         <span class="icon">
@@ -38,12 +38,12 @@
 
                 <div class="date-input">
                     <label for="date">Data de Nascimento</label>
-                    <input id="date" type="text" name="userBirthDate" placeholder="Selecione a data" readonly required>
+                    <input id="date" type="text" name="userBirthDate" placeholder="Selecione a data" required>
                 </div>
 
                 <div class="botoes-acao">
-                    <button type="button" class="btn-voltar">Voltar</button>
-                    <button type="button" class="btn-avancar">Avançar</button>
+                    <button type="button" class="btn-voltar-disabled">Voltar</button>
+                    <button type="button" class="btn-avancar" id="button-next-1">Avançar</button>
                 </div>
 
                 <div class="breadcrumb">
@@ -93,8 +93,8 @@
                     placeholder="Digite sua senha (use letras e números)" required>
 
                 <div class="botoes-acao">
-                    <button type="button" class="btn-voltar">Voltar</button>
-                    <button type="button" class="btn-avancar">Avançar</button>
+                    <button type="button" class="btn-voltar" id="button-back-2">Voltar</button>
+                    <button type="button" class="btn-avancar" id="button-next-2">Avançar</button>
                 </div>
 
                 <div class="breadcrumb">
@@ -116,7 +116,7 @@
                 </div>
             </fieldset>
 
-            <fieldset class="userContact ativo">
+            <fieldset class="userContact">
                 <div class="mensagem">
                     <div class="card-header">
                         <span class="icon">
@@ -154,8 +154,8 @@
                 </div>
 
                 <div class="botoes-acao">
-                    <button type="button" class="btn-voltar">Voltar</button>
-                    <button type="button" class="btn-avancar">Avançar</button>
+                    <button type="button" class="btn-voltar" id="button-back-3">Voltar</button>
+                    <button type="button" class="btn-avancar" id="button-next-3">Avançar</button>
                 </div>
 
                 <div class="breadcrumb">
@@ -198,13 +198,14 @@
                 </div>
 
                 <div class="botoes-acao">
-                    <button type="button" class="btn-voltar">Voltar</button>
-                    <button type="submit" class="btn-avancar">Salvar</button>
+                    <button type="button" class="btn-voltar" id="button-back-4">Voltar</button>
+                    <button type="submit" class="btn-avancar" id="button-next-4">Salvar</button>
                 </div>
             </fieldset>
 
         </form>
     </main>
+<script src="./js/formControler.js"></script>
 </body>
 
 </html>
