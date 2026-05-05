@@ -1,0 +1,118 @@
+.home-page{
+    gap: 32px;
+    margin: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+.home-profile{
+    display: flex;
+    justify-content: center;
+}
+.home-profile-section{
+    display: flex;
+    width: -webkit-fill-available;
+    height: 30vw;
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 5vh 5vh 0px 0px;
+    padding: 12px 32px;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.home-profile-text{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-family: Roboto;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 25px;
+    line-height: Static/Display Medium/Line Height;
+    letter-spacing: Static/Display Medium/Tracking;
+    vertical-align: middle;
+    color: #FCFCFC;
+}
+h6{
+    font-family: Static/Body Small/Font;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: Static/Body Small/Size;
+    line-height: Static/Body Small/Line Height;
+    letter-spacing: Static/Body Small/Tracking;
+    color: #FCFCFC;
+}
+
+.home-profile-buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.btn {
+    width: -webkit-fill-available;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    justify-content: center;
+}
+
+.btn {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn.primary {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.btn i {
+  width: 18px;
+  height: 18px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #0f2a3d, #0a1f2e);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn.primary:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+}
+
+
+.btn.secondary {
+  background: #e5e5e5;
+  color: #222;
+}
+
+.btn.secondary:hover {
+  background: #dcdcdc;
+  transform: translateY(-1px);
+}
+
+.btn.secondary:active {
+  transform: scale(0.97);
+  background: #d0d0d0;
+}

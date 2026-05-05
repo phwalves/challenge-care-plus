@@ -1,0 +1,24 @@
+.home-notify{
+    display: flex;
+    width: -webkit-fill-available;
+    height: auto;
+    max-width: 1200px;
+    opacity: 1;
+    border-radius: 12px;
+    border-width: 0.5px;
+    padding: 22px;
+    background: #FCFCFC;
+    border: 0.5px solid #09090b21;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 22px;
+    align-items: center;
+}
+
+.home-notify-icon {
+    display: flex;
+    width: -webkit-fill-available;
+    align-items: center;
+    justify-content: center;
+    max-width: max-content;
+}

@@ -1,0 +1,85 @@
+/* 1. Box sizing mais previsível */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove margens padrão */
+* {
+  margin: 0;
+}
+
+/* 3. Melhor renderização */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  margin-top: 40px;
+}
+
+/* 4. Melhorias para mídia */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 5. Remove estilos padrão de inputs */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 6. Evita overflow de textos */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 7. Melhora stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* 8. Remove estilos padrão de listas */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* 9. Links mais limpos */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 10. Botões mais consistentes */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 11. Tabelas mais previsíveis */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}

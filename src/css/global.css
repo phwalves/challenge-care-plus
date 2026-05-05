@@ -14,8 +14,9 @@ body {
   background: radial-gradient(50% 50% at 50% 50%, #fcfcfc 0%, #eee 100%);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 
