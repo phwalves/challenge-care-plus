@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+    <title>Care Plus - Agendar</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <main class="login">
+        <form action="#">
+            Agendar
+        </form>
+    </main>
+    <div class="home-page">
+        <div class="home-nav">
+            <div id="button-agendar" class="nav-item active" data-nav="agendar">
+                <i data-lucide="calendar-check-2"></i>
+                <span>Agendar</span>
+            </div>
+
+            <div id="button-historico" class="nav-item" data-nav="historico">
+                <i data-lucide="history"></i>
+                <span>Histórico</span>
+            </div>
+
+            <div id="button-pontos" class="nav-item" data-nav="pontos">
+                <i data-lucide="trophy"></i>
+                <span>Pontos</span>
+            </div>
+
+            <div id="button-perfil" class="nav-item" data-nav="pefil">
+                <i data-lucide="user"></i>
+                <span>Perfil</span>
+            </div>
+        </div>
+    </div>
+    <script src="./js/formControler.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    lucide.createIcons();
+    </script>
+</body>
+
+</html>
