@@ -1,105 +1,172 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, max-scale=1.0"
+    />
     <title>Care Plus - Agendar</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-<body class="page-agendar">
+  <body class="page-agendar">
     <main class="agendar-layout">
-        <form class="agendar-card" action="#">
-            <div class="agendar-header">
-                <div class="agendar-title-group">
-                    <h2 class="agendar-title">Agendar Consulta</h2>
-                    <h4 class="agendar-description">Preencha os campos para agendar uma consulta.</h4>
-                </div>
-                <button class="agendar-close" type="button" aria-label="Fechar">
-                    <i data-lucide="x"></i>
-                </button>
+      <section class="agendar-panel">
+        <form class="agendar-card" id="form-agendar" action="#">
+          <div class="agendar-header">
+            <div class="agendar-title-group">
+              <h2 class="agendar-title">Agendar Consulta</h2>
+              <h4 class="agendar-description">
+                Preencha os campos para agendar uma consulta.
+              </h4>
             </div>
+          </div>
 
-            <div class="consulta-field">
-                <label class="consulta-label" for="consulta-nome">Nome</label>
-                <input class="consulta-input" type="text" name="nome" id="consulta-nome" placeholder="Pedro Duarte">
-            </div>
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-nome">Nome</label>
+            <input
+              class="consulta-input"
+              type="text"
+              name="nome"
+              id="consulta-nome"
+              placeholder="Pedro Duarte"
+              required
+            />
+          </div>
 
-            <div class="consulta-field">
-                <label class="consulta-label" for="consulta-local">Local</label>
-                <input class="consulta-input" type="text" name="local" id="consulta-local" placeholder="@peduarte">
-            </div>
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-local">Local</label>
+            <input
+              class="consulta-input"
+              type="text"
+              name="local"
+              id="consulta-local"
+              placeholder="@peduarte"
+              required
+            />
+          </div>
 
-            <div class="consulta-field">
-                <label class="consulta-label" for="consulta-data">Data</label>
-                <input class="consulta-input" type="text" name="data" id="consulta-data" placeholder="Jan 20 - Feb 09">
-            </div>
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-data">Data</label>
+            <input
+              class="consulta-input"
+              type="date"
+              name="data"
+              id="consulta-data"
+              required
+            />
+          </div>
 
-            <div class="consulta-field">
-                <label class="consulta-label" for="consulta-horario">Horário</label>
-                <input class="consulta-input" type="time" name="horario" id="consulta-horario" value="10:00">
-            </div>
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-horario">Horário</label>
+            <input
+              class="consulta-input"
+              type="time"
+              name="horario"
+              id="consulta-horario"
+              value="10:00"
+              required
+            />
+          </div>
 
-            <div class="consulta-select-field">
-                <label class="consulta-label" for="consulta-especialidade">Especialidade</label>
-                <select class="consulta-select" name="especialidade" id="consulta-especialidade">
-                    <option value="">Selecione</option>
-                    <option value="clinico-geral">Clínico geral</option>
-                    <option value="cardiologia">Cardiologia</option>
-                    <option value="dermatologia">Dermatologia</option>
-                    <option value="pediatria">Pediatria</option>
-                </select>
-            </div>
+          <div class="consulta-select-field">
+            <label class="consulta-label" for="consulta-especialidade">
+              Especialidade
+            </label>
+            <select
+              class="consulta-select"
+              name="especialidade"
+              id="consulta-especialidade"
+              required
+            >
+              <option value="">Selecione</option>
+              <option value="Clínico geral">Clínico geral</option>
+              <option value="Cardiologia">Cardiologia</option>
+              <option value="Dermatologia">Dermatologia</option>
+              <option value="Pediatria">Pediatria</option>
+            </select>
+          </div>
 
-            <div class="consulta-options">
-                <label class="consulta-option" for="consulta-online">
-                    <input class="consulta-radio" type="radio" name="tipo-consulta" id="consulta-online" value="online">
-                    <span>Consulta on-line</span>
-                </label>
+          <div class="consulta-options">
+            <label class="consulta-option" for="consulta-online">
+              <input
+                class="consulta-radio"
+                type="radio"
+                name="tipoConsulta"
+                id="consulta-online"
+                value="Consulta on-line"
+              />
+              <span>Consulta on-line</span>
+            </label>
 
-                <label class="consulta-option" for="consulta-presencial">
-                    <input class="consulta-radio" type="radio" name="tipo-consulta" id="consulta-presencial" value="presencial" checked>
-                    <span>Consulta presencial</span>
-                </label>
-            </div>
+            <label class="consulta-option" for="consulta-presencial">
+              <input
+                class="consulta-radio"
+                type="radio"
+                name="tipoConsulta"
+                id="consulta-presencial"
+                value="Consulta presencial"
+                checked
+              />
+              <span>Consulta presencial</span>
+            </label>
+          </div>
 
-            <button class="consulta-submit" type="submit">
-                <i data-lucide="calendar-plus"></i>
-                <span>Agendar Consulta</span>
-            </button>
+          <button class="consulta-submit" type="submit">
+            <i data-lucide="calendar-plus"></i>
+            <span>Agendar Consulta</span>
+          </button>
         </form>
+
+        <section class="consultas-section" aria-labelledby="consultas-title">
+          <div class="consultas-header">
+            <div>
+              <h2 class="consultas-title" id="consultas-title">
+                Consultas agendadas
+              </h2>
+              <p class="consultas-count" id="consultas-count">
+                Verificando consultas salvas...
+              </p>
+            </div>
+          </div>
+
+          <div class="consultas-list" id="consultas-list"></div>
+          <p class="consultas-empty" id="consultas-empty" hidden>
+            Nenhuma consulta agendada no momento.
+          </p>
+        </section>
+      </section>
     </main>
     <div class="home-page">
-        <div class="home-nav">
-            <div id="button-agendar" class="nav-item active" data-nav="agendar">
-                <i data-lucide="calendar-check-2"></i>
-                <span>Agendar</span>
-            </div>
-
-            <div id="button-historico" class="nav-item" data-nav="historico">
-                <i data-lucide="history"></i>
-                <span>Histórico</span>
-            </div>
-
-            <div id="button-pontos" class="nav-item" data-nav="pontos">
-                <i data-lucide="trophy"></i>
-                <span>Pontos</span>
-            </div>
-
-            <div id="button-perfil" class="nav-item" data-nav="pefil">
-                <i data-lucide="user"></i>
-                <span>Perfil</span>
-            </div>
+      <div class="home-nav">
+        <div id="button-agendar" class="nav-item active" data-nav="agendar">
+          <i data-lucide="calendar-check-2"></i>
+          <span>Agendar</span>
         </div>
+
+        <div id="button-historico" class="nav-item" data-nav="historico">
+          <i data-lucide="history"></i>
+          <span>Histórico</span>
+        </div>
+
+        <div id="button-pontos" class="nav-item" data-nav="pontos">
+          <i data-lucide="trophy"></i>
+          <span>Pontos</span>
+        </div>
+
+        <div id="button-perfil" class="nav-item" data-nav="pefil">
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </div>
+      </div>
     </div>
-    <script src="./js/formControler.js"></script>
+    <script src="./js/agendar.js"></script>
     <script src="./js/nav.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-    lucide.createIcons();
+      lucide.createIcons();
     </script>
-</body>
-
+  </body>
 </html>

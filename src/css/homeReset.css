@@ -12,6 +12,7 @@
 
 /* 3. Melhor renderização */
 body {
+  padding: 32px 0px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

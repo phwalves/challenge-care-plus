@@ -2,7 +2,10 @@
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
-  padding: 10px;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+  padding: 16px 10px 96px;
 }
 
 .agendar-layout {
@@ -11,24 +14,36 @@
   justify-content: center;
 }
 
-.agendar-card {
+.agendar-panel {
   width: 100%;
-  max-width: 296px;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
-  flex: initial;
-  height: auto;
-  padding: 26px 20px 10px;
+  gap: 16px;
+}
+
+.agendar-card,
+.consulta-details-card,
+.consulta-summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   border-radius: 6px;
   border: 1px solid rgba(9, 9, 11, 0.1);
   background: rgba(252, 252, 252, 0.72);
   box-shadow: 0 2px 8px rgba(9, 9, 11, 0.08);
 }
 
+.agendar-card {
+  flex: initial;
+  height: auto;
+  padding: 28px 20px 12px;
+}
+
 .agendar-header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
   margin-bottom: 22px;
 }
@@ -36,42 +51,28 @@
 .agendar-title-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .agendar-title {
   color: #09090b;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.15;
 }
 
 .agendar-description {
-  max-width: 230px;
+  max-width: 270px;
   color: #555;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.35;
 }
 
-.agendar-close {
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #303030;
-}
-
-.agendar-close i {
-  width: 15px;
-  height: 15px;
-}
-
 .consulta-field,
 .consulta-select-field {
   display: grid;
-  grid-template-columns: 38px 1fr;
+  grid-template-columns: 50px 1fr;
   align-items: center;
   gap: 8px;
   margin-bottom: 14px;
@@ -87,13 +88,14 @@
   margin: 0;
   color: #09090b;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .agendar-card input.consulta-input,
-.agendar-card select.consulta-select {
+.agendar-card select.consulta-select,
+.consulta-select {
   width: 100%;
-  height: 34px;
+  height: 36px;
   margin: 0;
   padding: 0 14px;
   border-radius: 6px;
@@ -110,17 +112,20 @@
 }
 
 .agendar-card input.consulta-input:focus,
-.agendar-card select.consulta-select:focus {
+.agendar-card select.consulta-select:focus,
+.consulta-select:focus {
   outline: none;
   border-color: #0f2a3d;
   box-shadow: 0 0 0 3px rgba(15, 42, 61, 0.12);
 }
 
-.agendar-card select.consulta-select {
+.agendar-card select.consulta-select,
+.consulta-select {
   appearance: none;
   min-height: 36px;
   padding-right: 36px;
-  background-image: linear-gradient(45deg, transparent 50%, #777 50%), linear-gradient(135deg, #777 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, #777 50%),
+    linear-gradient(135deg, #777 50%, transparent 50%);
   background-position: calc(100% - 18px) 15px, calc(100% - 13px) 15px;
   background-size: 5px 5px, 5px 5px;
   background-repeat: no-repeat;
@@ -156,42 +161,388 @@
   background: #09090b;
 }
 
-.consulta-submit {
+.consulta-submit,
+.consulta-cancelar {
   width: 100%;
   height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border-radius: 5px;
-  background: #0f2a3d;
+  border-radius: 6px;
   color: #fff;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   transition: filter 0.2s, transform 0.2s;
 }
 
-.consulta-submit i {
+.consulta-submit {
+  background: #0f2a3d;
+}
+
+.consulta-submit i,
+.consulta-cancelar i {
   width: 18px;
   height: 18px;
 }
 
-.consulta-submit:hover {
-  filter: brightness(1.08);
+.consulta-submit:hover,
+.consulta-cancelar:hover {
+  filter: brightness(1.06);
 }
 
-.consulta-submit:active {
+.consulta-submit:active,
+.consulta-cancelar:active {
   transform: scale(0.98);
 }
 
-.page-agendar .home-page {
-  height: auto;
-  max-width: 296px;
-  margin: 0;
+.consultas-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-@media (min-width: 768px) {
-  .page-agendar {
-    padding-top: 10px;
-  }
+.consultas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.consultas-title {
+  color: #09090b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.consultas-count,
+.consultas-empty {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.consultas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.consulta-card-item {
+  width: 100%;
+}
+
+.consulta-summary {
+  gap: 16px;
+  padding: 16px;
+}
+
+.consulta-summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.consulta-summary-id {
+  color: #0f2a3d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.consulta-summary h3 {
+  color: #09090b;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.consulta-summary p,
+.consulta-summary small {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.consulta-summary-actions,
+.consulta-detail-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.consulta-action {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid rgba(9, 9, 11, 0.12);
+  background: #fcfcfc;
+  color: #0f2a3d;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.consulta-action:hover {
+  background: #f0f0f0;
+}
+
+.consulta-action:active {
+  transform: scale(0.98);
+}
+
+.consulta-action.danger {
+  border-color: rgba(255, 47, 85, 0.18);
+  color: #ff2f55;
+}
+
+.consulta-complete {
+  display: none;
+  min-height: 474px;
+  perspective: 1200px;
+}
+
+.consulta-card-item.is-expanded .consulta-summary {
+  display: none;
+}
+
+.consulta-card-item.is-expanded .consulta-complete {
+  display: block;
+}
+
+.consulta-card-flip {
+  position: relative;
+  min-height: 474px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+}
+
+.consulta-card-flip.is-canceling {
+  transform: rotateY(180deg);
+}
+
+.consulta-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.consulta-face-back {
+  transform: rotateY(180deg);
+}
+
+.consulta-details-card {
+  min-height: 474px;
+  padding: 28px 19px 10px;
+}
+
+.consulta-details-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.consulta-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(9, 9, 11, 0.18);
+  background: #fcfcfc;
+  box-shadow: 0 2px 6px rgba(9, 9, 11, 0.08);
+}
+
+.consulta-calendar strong {
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.calendar-weekdays,
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  text-align: center;
+}
+
+.calendar-weekdays span {
+  color: #555;
+  font-size: 11px;
+}
+
+.calendar-day {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #09090b;
+  font-size: 13px;
+}
+
+.calendar-day.selected {
+  background: #0f2a3d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.consulta-notification {
+  display: grid;
+  grid-template-columns: 28px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(9, 9, 11, 0.14);
+  background: #fcfcfc;
+  box-shadow: 0 2px 6px rgba(9, 9, 11, 0.08);
+}
+
+.consulta-notification i {
+  width: 24px;
+  height: 24px;
+  color: #09090b;
+}
+
+.consulta-notification strong {
+  display: block;
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.consulta-notification p {
+  color: #555;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.notification-toggle {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: #0f2a3d;
+}
+
+.notification-toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+}
+
+.notification-toggle.active::before {
+  transform: translateX(18px);
+}
+
+.consulta-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 12px 0 16px;
+}
+
+.consulta-message {
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  gap: 4px;
+}
+
+.consulta-message > span {
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #4d79ff;
+}
+
+.consulta-message strong,
+.consulta-message small {
+  display: block;
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.consulta-message small {
+  color: #555;
+  font-weight: 400;
+}
+
+.cancelar-card {
+  min-height: 342px;
+  padding: 28px 19px 10px;
+}
+
+.consulta-file-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.consulta-file-control {
+  width: 100%;
+  min-height: 36px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(9, 9, 11, 0.18);
+  background: #fcfcfc;
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(9, 9, 11, 0.06);
+}
+
+.consulta-file-control strong {
+  min-width: 0;
+  color: #b0b0b0;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agendar-card input.consulta-file {
+  display: none;
+}
+
+.consulta-cancelar {
+  background: #ff2f55;
+}
+
+.consulta-back-detail {
+  margin-top: 10px;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.page-agendar .home-page {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0;
+  gap: 0;
+}
+
+.page-agendar .home-nav {
+  width: 100%;
+  margin-top: 0;
 }
