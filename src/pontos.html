@@ -11,158 +11,147 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body>
+  <body class="page-pontos">
     <main class="pontos-layout">
       <section class="pontos-panel" aria-labelledby="pontos-title">
-        <section class="pontos-info-card">
-          <div>
-            <span>Care Plus Rewards</span>
-            <h2 id="pontos-title">Seu rank</h2>
-            <p>Faltam poucos pontos para desbloquear benefícios exclusivos.</p>
-          </div>
-          <button class="rank-benefits-link" type="button" data-open-modal="benefits-modal">
-            Benefícios
-          </button>
-        </section>
+        <section class="points-hero" id="points-hero">
+          <div class="hero-copy">
+            <span class="hero-kicker">Care Plus Rewards</span>
+            <h1 id="pontos-title">Sua jornada de pontos</h1>
+            <p id="hero-description">
+              Complete missões, suba de rank e desbloqueie benefícios cada vez
+              mais exclusivos.
+            </p>
 
-        <section class="rank-card" aria-label="Resumo do rank">
-          <div class="rank-kicker">
-            <span>Nível atual</span>
-            <strong>Care Platinum</strong>
-          </div>
-
-          <div class="rank-badges">
-            <div class="rank-badge muted gold">
-              <i data-lucide="shield"></i>
-              <strong>Gold</strong>
-            </div>
-
-            <div class="rank-badge active platinum">
-              <i data-lucide="gem"></i>
-              <strong>Platinum</strong>
-            </div>
-
-            <div class="rank-badge muted diamond">
-              <i data-lucide="diamond"></i>
-              <strong>Diamond</strong>
+            <div class="hero-actions">
+              <button class="hero-action primary" type="button" data-open-modal="missions-modal">
+                <i data-lucide="zap"></i>
+                <span>Ganhar pontos</span>
+              </button>
+              <span class="hero-chip" id="hero-next-chip">Próximo rank</span>
             </div>
           </div>
 
-          <div class="rank-progress">
-            <div class="rank-score">
-              <strong>175</strong>
-              <span>pontos</span>
+          <div class="rank-spotlight" aria-label="Rank atual">
+            <span class="spotlight-label">Rank atual</span>
+            <div class="rank-medal" id="current-rank-medal">
+              <i data-lucide="shield-check" id="current-rank-icon"></i>
             </div>
-            <div class="progress-track" aria-label="Progresso para o próximo rank">
-              <span style="width: 87.5%"></span>
-            </div>
-            <div class="rank-score right">
-              <strong>25</strong>
-              <span>faltam</span>
-            </div>
-          </div>
-
-          <div class="rank-next">
-            <i data-lucide="sparkles"></i>
-            <span>Próxima recompensa no Care Diamond</span>
+            <strong id="current-rank-name">Care Pro</strong>
+            <small id="current-rank-summary">Carregando progresso...</small>
           </div>
         </section>
 
-        <section class="missions-card" aria-labelledby="missions-title">
-          <div class="missions-header">
-            <div>
-              <h2 id="missions-title">Missões rápidas</h2>
-              <p>Top 3 formas de avançar hoje.</p>
+        <section class="pontos-grid">
+          <section class="progress-card panel-surface" aria-labelledby="progress-title">
+            <div class="section-heading">
+              <div>
+                <span>Progresso</span>
+                <h2 id="progress-title">Rumo ao próximo nível</h2>
+              </div>
+              <i data-lucide="trending-up"></i>
             </div>
-            <button type="button" data-open-modal="missions-modal">Ver todas</button>
-          </div>
 
-          <div class="missions-list">
-            <article class="mission-item">
-              <i data-lucide="calendar-check-2"></i>
-              <p>Compareça à consulta agendada</p>
-              <strong>+15</strong>
-            </article>
+            <div class="score-board">
+              <div>
+                <span>Pontuação atual</span>
+                <strong id="current-points">0</strong>
+              </div>
+              <div>
+                <span>Faltam</span>
+                <strong id="points-missing">0</strong>
+              </div>
+            </div>
 
-            <article class="mission-item">
-              <i data-lucide="bell-ring"></i>
-              <p>Confirme presença com 24h</p>
-              <strong>+10</strong>
-            </article>
+            <div
+              class="progress-shell"
+              role="progressbar"
+              aria-label="Progresso para o próximo rank"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              id="rank-progress"
+            >
+              <span id="progress-fill"></span>
+            </div>
 
-            <article class="mission-item">
-              <i data-lucide="credit-card"></i>
-              <p>Faça pagamento antecipado</p>
-              <strong>+20</strong>
-            </article>
-          </div>
+            <div class="progress-labels">
+              <span id="current-rank-threshold">Care Pro</span>
+              <strong id="next-rank-threshold">Care Platinum</strong>
+            </div>
+          </section>
+
+          <section class="rank-road panel-surface" aria-labelledby="rank-road-title">
+            <div class="section-heading">
+              <div>
+                <span>Trilha de ranks</span>
+                <h2 id="rank-road-title">Escolha um rank</h2>
+              </div>
+              <i data-lucide="trophy"></i>
+            </div>
+
+            <div class="rank-track" id="rank-track"></div>
+          </section>
+
+          <section class="benefits-card panel-surface" aria-labelledby="benefits-title">
+            <div class="section-heading benefits-heading">
+              <div>
+                <span>Benefícios</span>
+                <h2 id="benefits-title">Benefícios do rank</h2>
+                <p id="benefits-description">
+                  Selecione um rank para ver o que ele desbloqueia.
+                </p>
+              </div>
+              <i data-lucide="sparkles"></i>
+            </div>
+
+            <div class="benefits-grid" id="selected-benefits"></div>
+          </section>
+
+          <section class="missions-card panel-surface" aria-labelledby="missions-title">
+            <div class="missions-header">
+              <div class="section-heading">
+                <div>
+                  <span>Como ganhar mais</span>
+                  <h2 id="missions-title">Missões rápidas</h2>
+                </div>
+                <i data-lucide="target"></i>
+              </div>
+            </div>
+
+            <div class="missions-list" id="quick-missions"></div>
+          </section>
         </section>
       </section>
     </main>
 
     <div class="home-page">
-      <div class="home-nav">
-        <div id="button-agendar" class="nav-item" data-nav="agendar">
+      <nav class="home-nav" aria-label="Menu principal">
+        <a id="button-home" class="nav-item" href="index.html" data-nav="home" aria-label="Home">
+          <i data-lucide="house"></i>
+          <span>Home</span>
+        </a>
+
+        <a id="button-agendar" class="nav-item" href="agendar.html" data-nav="agendar" aria-label="Agendar">
           <i data-lucide="calendar-check-2"></i>
           <span>Agendar</span>
-        </div>
+        </a>
 
-        <div id="button-historico" class="nav-item" data-nav="historico">
+        <a id="button-historico" class="nav-item" href="historico.html" data-nav="historico" aria-label="Histórico">
           <i data-lucide="history"></i>
           <span>Histórico</span>
-        </div>
+        </a>
 
-        <div id="button-pontos" class="nav-item active" data-nav="pontos">
+        <a id="button-pontos" class="nav-item active" href="pontos.html" data-nav="pontos" aria-label="Pontos">
           <i data-lucide="trophy"></i>
           <span>Pontos</span>
-        </div>
+        </a>
 
-        <div id="button-perfil" class="nav-item" data-nav="pefil">
+        <a id="button-perfil" class="nav-item" href="perfil.html" data-nav="perfil" aria-label="Perfil">
           <i data-lucide="user"></i>
           <span>Perfil</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="pontos-modal" id="benefits-modal" hidden>
-      <div class="modal-backdrop" data-close-modal></div>
-      <section
-        class="modal-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="benefits-title"
-      >
-        <div class="modal-header">
-          <h2 id="benefits-title">Benefícios por rank</h2>
-          <button type="button" data-close-modal aria-label="Fechar benefícios">
-            <i data-lucide="x"></i>
-          </button>
-        </div>
-
-        <div class="benefits-list">
-          <article>
-            <i data-lucide="shield"></i>
-            <div>
-              <strong>Care Gold</strong>
-              <p>Check-in prioritário e lembretes personalizados.</p>
-            </div>
-          </article>
-          <article>
-            <i data-lucide="gem"></i>
-            <div>
-              <strong>Care Platinum</strong>
-              <p>Reagendamento flexível e descontos em serviços parceiros.</p>
-            </div>
-          </article>
-          <article>
-            <i data-lucide="diamond"></i>
-            <div>
-              <strong>Care Diamond</strong>
-              <p>Suporte preferencial, campanhas exclusivas e benefícios premium.</p>
-            </div>
-          </article>
-        </div>
-      </section>
+        </a>
+      </nav>
     </div>
 
     <div class="pontos-modal" id="missions-modal" hidden>
@@ -174,7 +163,10 @@
         aria-labelledby="all-missions-title"
       >
         <div class="modal-header">
-          <h2 id="all-missions-title">Todas as missões</h2>
+          <div>
+            <span>Care Plus Rewards</span>
+            <h2 id="all-missions-title">Todas as missões</h2>
+          </div>
           <button type="button" data-close-modal aria-label="Fechar missões">
             <i data-lucide="x"></i>
           </button>
@@ -197,7 +189,9 @@
     <script src="./js/nav.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-      lucide.createIcons();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     </script>
   </body>
 </html>

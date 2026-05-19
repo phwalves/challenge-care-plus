@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"> 
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body>
+  <body class="page-agendar">
     <main class="agendar-layout">
       <section class="agendar-panel">
         <section class="agendar-accordion is-open" data-accordion-section="form">
@@ -109,27 +109,32 @@
       </section>
     </main>
     <div class="home-page">
-      <div class="home-nav">
-        <div id="button-agendar" class="nav-item active" data-nav="agendar">
+      <nav class="home-nav" aria-label="Menu principal">
+        <a id="button-home" class="nav-item" href="index.html" data-nav="home" aria-label="Home">
+          <i data-lucide="house"></i>
+          <span>Home</span>
+        </a>
+
+        <a id="button-agendar" class="nav-item active" href="agendar.html" data-nav="agendar" aria-label="Agendar">
           <i data-lucide="calendar-check-2"></i>
           <span>Agendar</span>
-        </div>
+        </a>
 
-        <div id="button-historico" class="nav-item" data-nav="historico">
+        <a id="button-historico" class="nav-item" href="historico.html" data-nav="historico" aria-label="Histórico">
           <i data-lucide="history"></i>
           <span>Histórico</span>
-        </div>
+        </a>
 
-        <div id="button-pontos" class="nav-item" data-nav="pontos">
+        <a id="button-pontos" class="nav-item" href="pontos.html" data-nav="pontos" aria-label="Pontos">
           <i data-lucide="trophy"></i>
           <span>Pontos</span>
-        </div>
+        </a>
 
-        <div id="button-perfil" class="nav-item" data-nav="pefil">
+        <a id="button-perfil" class="nav-item" href="perfil.html" data-nav="perfil" aria-label="Perfil">
           <i data-lucide="user"></i>
           <span>Perfil</span>
-        </div>
-      </div>
+        </a>
+      </nav>
     </div>
     <script src="./js/agendar.js"></script>
     <script src="./js/nav.js"></script>
