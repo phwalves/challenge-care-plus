@@ -4,7 +4,16 @@ const btnHistorico = document.querySelector("#button-historico");
 const btnPontos = document.querySelector("#button-pontos");
 const btnPerfil = document.querySelector("#button-perfil");
 
-const activeItem = localStorage.getItem("activeNav");
+const pageByPath = {
+    "agendar.html": "agendar",
+    "historico.html": "historico",
+    "pontos.html": "pontos",
+    "perfil.html": "pefil",
+    "index.html": "agendar",
+};
+
+const currentPage = location.pathname.split("/").pop() || "index.html";
+const activeItem = pageByPath[currentPage] || localStorage.getItem("activeNav");
 
 if (activeItem) {
     document.querySelectorAll(".nav-item").forEach(item => {
@@ -14,6 +23,8 @@ if (activeItem) {
             item.classList.add("active");
         }
     });
+
+    localStorage.setItem("activeNav", activeItem);
 }
 
 items.forEach(item => {
@@ -28,22 +39,22 @@ items.forEach(item => {
     });
 });
 
-btnAgendar.addEventListener('click', () => {
+btnAgendar?.addEventListener('click', () => {
     btnAgendar.classList.remove('ativo');
     window.location.href = 'agendar.html';
 })
 
-btnHistorico.addEventListener('click', () => {
+btnHistorico?.addEventListener('click', () => {
     btnHistorico.classList.remove('ativo');
     window.location.href = 'historico.html';
 })
 
-btnPontos.addEventListener('click', () => {
+btnPontos?.addEventListener('click', () => {
     btnPontos.classList.remove('ativo');
     window.location.href = 'pontos.html';
 })
 
-btnPerfil.addEventListener('click', () => {
+btnPerfil?.addEventListener('click', () => {
     btnPerfil.classList.remove('ativo');
     window.location.href = 'perfil.html';
 })

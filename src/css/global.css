@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Inter";
-  src: url(../assets/fonts/Inter-VariableFont_opsz\,wght.ttf) format("truetype");
+  src: url(../assets/fonts/Inter-VariableFont_opsz\wght.ttf) format("truetype");
 }
 
 * {
@@ -13,14 +13,12 @@
 body {
   background: radial-gradient(50% 50% at 50% 50%, #fcfcfc 0%, #eee 100%);
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 100vh;
   overflow: hidden;
   flex-direction: column;
 }
 
-
 @media (min-width: 768px) {
-
 }

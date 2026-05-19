@@ -9,7 +9,8 @@
 }
 
 .agendar-layout {
-  width: 100%;
+  margin: auto 40px 0px 30px;
+  width: -webkit-fill-available;
   display: flex;
   justify-content: center;
 }
@@ -22,6 +23,49 @@
   gap: 16px;
 }
 
+.agendar-accordion {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(9, 9, 11, 0.1);
+  background: rgba(252, 252, 252, 0.72);
+}
+
+.accordion-header {
+  width: 100%;
+  min-height: 78px;
+  display: grid;
+  grid-template-columns: 1fr 36px;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 16px;
+  color: inherit;
+  text-align: left;
+}
+
+.accordion-header i {
+  width: 22px;
+  height: 22px;
+  justify-self: end;
+  color: #0f2a3d;
+  transition: transform 0.25s ease;
+}
+
+.agendar-accordion.is-open .accordion-header i {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  display: none;
+  padding: 0 16px 16px;
+}
+
+.agendar-accordion.is-open .accordion-content {
+  overflow-y: auto;
+  display: block;
+  max-height: 550px;
+}
+
 .agendar-card,
 .consulta-details-card,
 .consulta-summary {
@@ -31,13 +75,20 @@
   border-radius: 6px;
   border: 1px solid rgba(9, 9, 11, 0.1);
   background: rgba(252, 252, 252, 0.72);
-  box-shadow: 0 2px 8px rgba(9, 9, 11, 0.08);
 }
 
 .agendar-card {
   flex: initial;
   height: auto;
   padding: 28px 20px 12px;
+}
+
+.accordion-content > .agendar-card {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 
 .agendar-header {

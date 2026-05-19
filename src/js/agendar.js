@@ -4,6 +4,10 @@
   const consultasList = document.querySelector("#consultas-list");
   const consultasCount = document.querySelector("#consultas-count");
   const consultasEmpty = document.querySelector("#consultas-empty");
+  const accordionSections = document.querySelectorAll("[data-accordion-section]");
+  const accordionTriggers = document.querySelectorAll("[data-accordion-trigger]");
+  let activeAccordion = "form";
+  let accordionInicializado = false;
 
   const mensagensPadrao = [
     "Sua consulta foi confirmada",
@@ -51,6 +55,20 @@
 
   const setConsultas = (consultas) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(consultas));
+  };
+
+  const abrirAccordion = (sectionName) => {
+    activeAccordion = sectionName;
+
+    accordionSections.forEach((section) => {
+      const isActive = section.dataset.accordionSection === sectionName;
+      section.classList.toggle("is-open", isActive);
+    });
+
+    accordionTriggers.forEach((trigger) => {
+      const isActive = trigger.dataset.accordionTrigger === sectionName;
+      trigger.setAttribute("aria-expanded", String(isActive));
+    });
   };
 
   const consultasAgendadas = () => (
@@ -264,6 +282,15 @@
     consultasEmpty.hidden = total > 0;
     consultasList.innerHTML = consultas.map(renderConsulta).join("");
     atualizarIcones();
+
+    if (!accordionInicializado) {
+      abrirAccordion(total > 0 ? "consultas" : "form");
+      accordionInicializado = true;
+    }
+
+    if (total === 0 && activeAccordion === "consultas") {
+      abrirAccordion("form");
+    }
   };
 
   const atualizarConsulta = (id, updater) => {
@@ -296,6 +323,13 @@
     formAgendar.reset();
     document.querySelector("#consulta-presencial").checked = true;
     renderConsultas();
+    abrirAccordion("consultas");
+  });
+
+  accordionTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      abrirAccordion(trigger.dataset.accordionTrigger);
+    });
   });
 
   consultasList.addEventListener("click", (event) => {

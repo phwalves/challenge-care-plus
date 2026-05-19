@@ -1,49 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, max-scale=1.0"
+    />
     <title>Care Plus - Histórico</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-<body>
-    <main class="login">
-        <form action="#">
-            Histórico
-        </form>
-    </main>
-    <div class="home-page">
-        <div class="home-nav">
-            <div id="button-agendar" class="nav-item active" data-nav="agendar">
-                <i data-lucide="calendar-check-2"></i>
-                <span>Agendar</span>
-            </div>
-
-            <div id="button-historico" class="nav-item" data-nav="historico">
-                <i data-lucide="history"></i>
-                <span>Histórico</span>
-            </div>
-
-            <div id="button-pontos" class="nav-item" data-nav="pontos">
-                <i data-lucide="trophy"></i>
-                <span>Pontos</span>
-            </div>
-
-            <div id="button-perfil" class="nav-item" data-nav="pefil">
-                <i data-lucide="user"></i>
-                <span>Perfil</span>
-            </div>
+  <body>
+    <main class="historico-layout">
+      <section class="historico-card" aria-labelledby="historico-title">
+        <div class="historico-header">
+          <h2 id="historico-title">Veja seu Histórico de consultas</h2>
+          <p>Você tem 5 históricos</p>
         </div>
+
+        <div class="historico-list">
+          <article class="historico-item positivo">
+            <span class="historico-dot"></span>
+            <i data-lucide="badge-check"></i>
+            <div class="historico-info">
+              <time datetime="2025-10-28">28/10/2025</time>
+              <p>Compareceu à consulta de Odontologia - on-line</p>
+            </div>
+            <strong>+45</strong>
+          </article>
+
+          <article class="historico-item positivo">
+            <span class="historico-dot"></span>
+            <i data-lucide="calendar-clock"></i>
+            <div class="historico-info">
+              <time datetime="2025-10-12">12/10/2025</time>
+              <p>Remarcou a consulta com antecedência</p>
+            </div>
+            <strong>+20</strong>
+          </article>
+
+          <article class="historico-item negativo">
+            <span class="historico-dot"></span>
+            <i data-lucide="badge-alert"></i>
+            <div class="historico-info">
+              <time datetime="2025-09-27">27/09/2025</time>
+              <p>Faltou à consulta de Pediatria - Presencial</p>
+            </div>
+            <strong>-50</strong>
+          </article>
+
+          <article class="historico-item positivo">
+            <span class="historico-dot"></span>
+            <i data-lucide="file-check-2"></i>
+            <div class="historico-info">
+              <time datetime="2025-09-08">08/09/2025</time>
+              <p>Justificou ausência com antecedência</p>
+            </div>
+            <strong>+10</strong>
+          </article>
+
+          <article class="historico-item negativo">
+            <span class="historico-dot"></span>
+            <i data-lucide="clock-alert"></i>
+            <div class="historico-info">
+              <time datetime="2025-08-26">26/08/2025</time>
+              <p>Chegou atrasado à consulta de Oftalmologia</p>
+            </div>
+            <strong>-15</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div class="home-page">
+      <div class="home-nav">
+        <div id="button-agendar" class="nav-item" data-nav="agendar">
+          <i data-lucide="calendar-check-2"></i>
+          <span>Agendar</span>
+        </div>
+
+        <div id="button-historico" class="nav-item active" data-nav="historico">
+          <i data-lucide="history"></i>
+          <span>Histórico</span>
+        </div>
+
+        <div id="button-pontos" class="nav-item" data-nav="pontos">
+          <i data-lucide="trophy"></i>
+          <span>Pontos</span>
+        </div>
+
+        <div id="button-perfil" class="nav-item" data-nav="pefil">
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </div>
+      </div>
     </div>
-    <script src="./js/formControler.js"></script>
+
     <script src="./js/nav.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-    lucide.createIcons();
+      lucide.createIcons();
     </script>
-</body>
-
+  </body>
 </html>
