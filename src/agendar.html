@@ -11,125 +11,82 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body>
+  <body class="page-agendar">
     <main class="agendar-layout">
-      <div class="agendar-flip" id="agendar-flip">
-        <section class="agendar-face agendar-face-front">
-          <form class="agendar-card" id="form-agendar" action="#">
-            <div class="agendar-header">
-              <div class="agendar-title-group">
-                <h2 class="agendar-title">Agendar Consulta</h2>
-                <h4 class="agendar-description">
-                  Preencha os campos para agendar uma consulta.
-                </h4>
-              </div>
-              <button class="agendar-close" type="button" data-flip-card aria-label="Ver cancelamento">
-                <i data-lucide="x"></i>
-              </button>
+      <section class="agendar-panel">
+        <form class="agendar-card" id="form-agendar" action="#">
+          <div class="agendar-header">
+            <div class="agendar-title-group">
+              <h2 class="agendar-title">Agendar Consulta</h2>
+              <h4 class="agendar-description">
+                Preencha os campos para agendar uma consulta.
+              </h4>
             </div>
+          </div>
 
-            <div class="consulta-field">
-              <label class="consulta-label" for="consulta-nome">Nome</label>
-              <input class="consulta-input" type="text" name="nome" id="consulta-nome" placeholder="Pedro Duarte" required />
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-nome">Nome</label>
+            <input class="consulta-input" type="text" name="nome" id="consulta-nome" placeholder="Pedro Duarte" required />
+          </div>
+
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-local">Local</label>
+            <input class="consulta-input" type="text" name="local" id="consulta-local" placeholder="@peduarte" required />
+          </div>
+
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-data">Data</label>
+            <input class="consulta-input" type="date" name="data" id="consulta-data" required />
+          </div>
+
+          <div class="consulta-field">
+            <label class="consulta-label" for="consulta-horario">Horário</label>
+            <input class="consulta-input" type="time" name="horario" id="consulta-horario" value="10:00" required />
+          </div>
+
+          <div class="consulta-select-field">
+            <label class="consulta-label" for="consulta-especialidade">Especialidade</label>
+            <select class="consulta-select" name="especialidade" id="consulta-especialidade" required>
+              <option value="">Selecione</option>
+              <option value="Clínico geral">Clínico geral</option>
+              <option value="Cardiologia">Cardiologia</option>
+              <option value="Dermatologia">Dermatologia</option>
+              <option value="Pediatria">Pediatria</option>
+            </select>
+          </div>
+
+          <div class="consulta-options">
+            <label class="consulta-option" for="consulta-online">
+              <input class="consulta-radio" type="radio" name="tipoConsulta" id="consulta-online" value="Consulta on-line" />
+              <span>Consulta on-line</span>
+            </label>
+
+            <label class="consulta-option" for="consulta-presencial">
+              <input class="consulta-radio" type="radio" name="tipoConsulta" id="consulta-presencial" value="Consulta presencial" checked />
+              <span>Consulta presencial</span>
+            </label>
+          </div>
+
+          <button class="consulta-submit" type="submit">
+            <i data-lucide="calendar-plus"></i>
+            <span>Agendar Consulta</span>
+          </button>
+        </form>
+
+        <section class="consultas-section" aria-labelledby="consultas-title">
+          <div class="consultas-header">
+            <div>
+              <h2 class="consultas-title" id="consultas-title">Consultas agendadas</h2>
+              <p class="consultas-count" id="consultas-count">Verificando consultas salvas...</p>
             </div>
+          </div>
 
-            <div class="consulta-field">
-              <label class="consulta-label" for="consulta-local">Local</label>
-              <input class="consulta-input" type="text" name="local" id="consulta-local" placeholder="@peduarte" required />
-            </div>
-
-            <div class="consulta-field">
-              <label class="consulta-label" for="consulta-data">Data</label>
-              <input class="consulta-input" type="date" name="data" id="consulta-data" required />
-            </div>
-
-            <div class="consulta-field">
-              <label class="consulta-label" for="consulta-horario">Horário</label>
-              <input class="consulta-input" type="time" name="horario" id="consulta-horario" value="10:00" required />
-            </div>
-
-            <div class="consulta-select-field">
-              <label class="consulta-label" for="consulta-especialidade">Especialidade</label>
-              <select class="consulta-select" name="especialidade" id="consulta-especialidade" required>
-                <option value="">Selecione</option>
-                <option value="Clínico geral">Clínico geral</option>
-                <option value="Cardiologia">Cardiologia</option>
-                <option value="Dermatologia">Dermatologia</option>
-                <option value="Pediatria">Pediatria</option>
-              </select>
-            </div>
-
-            <div class="consulta-options">
-              <label class="consulta-option" for="consulta-online">
-                <input class="consulta-radio" type="radio" name="tipoConsulta" id="consulta-online" value="Consulta on-line" />
-                <span>Consulta on-line</span>
-              </label>
-
-              <label class="consulta-option" for="consulta-presencial">
-                <input class="consulta-radio" type="radio" name="tipoConsulta" id="consulta-presencial" value="Consulta presencial" checked />
-                <span>Consulta presencial</span>
-              </label>
-            </div>
-
-            <button class="consulta-submit" type="submit">
-              <i data-lucide="calendar-plus"></i>
-              <span>Agendar Consulta</span>
-            </button>
-          </form>
+          <div class="consultas-list" id="consultas-list"></div>
+          <p class="consultas-empty" id="consultas-empty" hidden>
+            Nenhuma consulta agendada no momento.
+          </p>
         </section>
-
-        <section class="agendar-face agendar-face-back">
-          <form class="agendar-card cancelar-card" id="form-cancelar" action="#">
-            <div class="agendar-header">
-              <div class="agendar-title-group">
-                <h2 class="agendar-title">
-                  Cancelar Consulta - #<span id="consulta-cancelar-id">78AF</span>
-                </h2>
-                <h4 class="agendar-description">
-                  Seu pedido será cancelado e avaliado pela equipe de integridade da CarePlus.
-                </h4>
-              </div>
-              <button class="agendar-close" type="button" data-flip-card aria-label="Voltar para agendamento">
-                <i data-lucide="x"></i>
-              </button>
-            </div>
-
-            <div class="consulta-select-field">
-              <label class="consulta-label" for="consulta-cancelar">Consulta para cancelar</label>
-              <select class="consulta-select" name="consultaCancelar" id="consulta-cancelar"></select>
-            </div>
-
-            <div class="consulta-select-field">
-              <label class="consulta-label" for="motivo-ausencia">Motivo da ausência</label>
-              <select class="consulta-select" name="motivoAusencia" id="motivo-ausencia" required>
-                <option value="">Selecione</option>
-                <option value="Conflito de horário">Conflito de horário</option>
-                <option value="Problema de saúde">Problema de saúde</option>
-                <option value="Imprevisto pessoal">Imprevisto pessoal</option>
-                <option value="Outro motivo">Outro motivo</option>
-              </select>
-            </div>
-
-            <div class="consulta-file-field">
-              <label class="consulta-label" for="documento-justificativa">Envie seu documento de justificativa</label>
-              <label class="consulta-file-control" for="documento-justificativa">
-                <span>Envie o arquivo</span>
-                <strong id="consulta-file-name">Nenhum arquivo...</strong>
-              </label>
-              <input class="consulta-file" type="file" name="documentoConsulta" id="documento-justificativa" />
-            </div>
-
-            <p class="consulta-empty" id="consulta-empty" hidden>
-              Nenhuma consulta disponível para cancelamento.
-            </p>
-
-            <button class="consulta-cancelar" type="submit">
-              <i data-lucide="circle-x"></i>
-              <span>Cancelar Consulta</span>
-            </button>
-          </form>
-        </section>
-      </div>
+      </section>
     </main>
     <div class="home-page">
       <div class="home-nav">
