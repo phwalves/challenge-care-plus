@@ -3,6 +3,12 @@
   src: url(../assets/fonts/Inter-VariableFont_opsz\wght.ttf) format("truetype");
 }
 
+:root {
+  --page-max-width: 1120px;
+  --page-inline-padding: clamp(14px, 4vw, 32px);
+  --page-bottom-padding: 104px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,8 +21,8 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100dvh;
+  overflow-x: hidden;
   flex-direction: column;
 }
 

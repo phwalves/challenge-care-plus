@@ -1,15 +1,19 @@
 const items = document.querySelectorAll(".nav-item");
-const btnAgendar = document.querySelector("#button-agendar");
-const btnHistorico = document.querySelector("#button-historico");
-const btnPontos = document.querySelector("#button-pontos");
-const btnPerfil = document.querySelector("#button-perfil");
 
 const pageByPath = {
+    "index.html": "home",
     "agendar.html": "agendar",
     "historico.html": "historico",
     "pontos.html": "pontos",
-    "perfil.html": "pefil",
-    "index.html": "agendar",
+    "perfil.html": "perfil",
+};
+
+const pathByNav = {
+    home: "index.html",
+    agendar: "agendar.html",
+    historico: "historico.html",
+    pontos: "pontos.html",
+    perfil: "perfil.html",
 };
 
 const currentPage = location.pathname.split("/").pop() || "index.html";
@@ -18,9 +22,11 @@ const activeItem = pageByPath[currentPage] || localStorage.getItem("activeNav");
 if (activeItem) {
     document.querySelectorAll(".nav-item").forEach(item => {
         item.classList.remove("active");
+        item.removeAttribute("aria-current");
 
         if (item.dataset.nav === activeItem) {
             item.classList.add("active");
+            item.setAttribute("aria-current", "page");
         }
     });
 
@@ -28,33 +34,25 @@ if (activeItem) {
 }
 
 items.forEach(item => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", (event) => {
+        const targetPath = pathByNav[item.dataset.nav];
+
+        if (targetPath && item.tagName !== "A") {
+            event.preventDefault();
+        }
 
         document.querySelector(".nav-item.active")
             ?.classList.remove("active");
+        document.querySelector(".nav-item[aria-current='page']")
+            ?.removeAttribute("aria-current");
 
         item.classList.add("active");
+        item.setAttribute("aria-current", "page");
 
         localStorage.setItem("activeNav", item.dataset.nav);
+
+        if (targetPath && item.tagName !== "A") {
+            window.location.href = targetPath;
+        }
     });
 });
-
-btnAgendar?.addEventListener('click', () => {
-    btnAgendar.classList.remove('ativo');
-    window.location.href = 'agendar.html';
-})
-
-btnHistorico?.addEventListener('click', () => {
-    btnHistorico.classList.remove('ativo');
-    window.location.href = 'historico.html';
-})
-
-btnPontos?.addEventListener('click', () => {
-    btnPontos.classList.remove('ativo');
-    window.location.href = 'pontos.html';
-})
-
-btnPerfil?.addEventListener('click', () => {
-    btnPerfil.classList.remove('ativo');
-    window.location.href = 'perfil.html';
-})

@@ -117,7 +117,6 @@
                 </div>
                 <i data-lucide="target"></i>
               </div>
-              <button type="button" data-open-modal="missions-modal">Ver todas</button>
             </div>
 
             <div class="missions-list" id="quick-missions"></div>
@@ -127,27 +126,32 @@
     </main>
 
     <div class="home-page">
-      <div class="home-nav">
-        <div id="button-agendar" class="nav-item" data-nav="agendar">
+      <nav class="home-nav" aria-label="Menu principal">
+        <a id="button-home" class="nav-item" href="index.html" data-nav="home" aria-label="Home">
+          <i data-lucide="house"></i>
+          <span>Home</span>
+        </a>
+
+        <a id="button-agendar" class="nav-item" href="agendar.html" data-nav="agendar" aria-label="Agendar">
           <i data-lucide="calendar-check-2"></i>
           <span>Agendar</span>
-        </div>
+        </a>
 
-        <div id="button-historico" class="nav-item" data-nav="historico">
+        <a id="button-historico" class="nav-item" href="historico.html" data-nav="historico" aria-label="Histórico">
           <i data-lucide="history"></i>
           <span>Histórico</span>
-        </div>
+        </a>
 
-        <div id="button-pontos" class="nav-item active" data-nav="pontos">
+        <a id="button-pontos" class="nav-item active" href="pontos.html" data-nav="pontos" aria-label="Pontos">
           <i data-lucide="trophy"></i>
           <span>Pontos</span>
-        </div>
+        </a>
 
-        <div id="button-perfil" class="nav-item" data-nav="pefil">
+        <a id="button-perfil" class="nav-item" href="perfil.html" data-nav="perfil" aria-label="Perfil">
           <i data-lucide="user"></i>
           <span>Perfil</span>
-        </div>
-      </div>
+        </a>
+      </nav>
     </div>
 
     <div class="pontos-modal" id="missions-modal" hidden>

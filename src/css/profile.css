@@ -1,37 +1,41 @@
-.home-page {
-  width: -webkit-fill-available;
-  gap: 32px;
-  margin: auto 40px 0px 30px;
+.page-home {
+  width: 100%;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding: var(--page-inline-padding) var(--page-inline-padding) var(--page-bottom-padding);
+}
+
+.page-home .home-page {
+  width: min(100%, var(--page-max-width));
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
+  align-items: stretch;
   justify-content: flex-start;
-  height: 100%;
+  gap: clamp(16px, 3vw, 32px);
+  margin: 0 auto;
 }
 
 .home-profile {
-    width: -webkit-fill-available;
-    max-width: 1200px;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .home-profile-section {
+  width: 100%;
+  min-height: clamp(220px, 32vw, 320px);
   display: flex;
-  width: -webkit-fill-available;
-  height: 30vw;
-  max-height: 300px;
-  background-size: cover;
-  background-position: center;
   flex-direction: column;
   justify-content: flex-end;
-  border-radius: 5vh 5vh 12px 12px;
-  padding: 12px 32px;
-  gap: 12px;
+  gap: 14px;
+  padding: clamp(18px, 4vw, 32px);
+  border-radius: clamp(18px, 4vw, 36px) clamp(18px, 4vw, 36px) 12px 12px;
+  border: 0.5px solid #dcdcdc;
+  background-size: cover;
+  background-position: center;
   box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.1);
-  border-width: 0.5px;
-  border: 0.5px solid #DCDCDC;
 }
 
 .home-profile-text {
@@ -39,66 +43,59 @@
   flex-direction: column;
 }
 
-h1 {
-  font-family: Roboto;
-  font-weight: 600;
-  font-style: SemiBold;
-  font-size: 25px;
-  line-height: Static/Display Medium/Line Height;
-  letter-spacing: Static/Display Medium/Tracking;
-  vertical-align: middle;
-  color: #FCFCFC;
+.home-profile-text h1 {
+  color: #fcfcfc;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 700;
+  line-height: 1.08;
 }
 
-h6 {
-  font-family: Static/Body Small/Font;
-  font-weight: 400;
-  font-style: Regular;
-  font-size: Static/Body Small/Size;
-  line-height: Static/Body Small/Line Height;
-  letter-spacing: Static/Body Small/Tracking;
-  color: #FCFCFC;
+.home-profile-text h6 {
+  color: #fcfcfc;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .home-profile-buttons {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 12px;
 }
 
 .btn {
-  width: -webkit-fill-available;
+  min-height: 42px;
+  flex: 1 1 150px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 10px 18px;
   border-radius: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
   border: none;
-  justify-content: center;
-}
-
-.btn {
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn.primary {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .btn i {
   width: 18px;
   height: 18px;
+  flex: 0 0 auto;
 }
 
 .btn.primary {
   background: linear-gradient(135deg, #0f2a3d, #0a1f2e);
   color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .btn.primary:hover {
@@ -111,7 +108,6 @@ h6 {
   filter: brightness(0.95);
 }
 
-
 .btn.secondary {
   background: #e5e5e5;
   color: #222;
@@ -123,6 +119,36 @@ h6 {
 }
 
 .btn.secondary:active {
-  transform: scale(0.97);
   background: #d0d0d0;
+  transform: scale(0.97);
+}
+
+.page-perfil {
+  width: 100%;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding: var(--page-inline-padding) var(--page-inline-padding) var(--page-bottom-padding);
+}
+
+.page-perfil .login {
+  width: min(100%, var(--page-max-width));
+  min-height: 280px;
+  height: auto;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid rgba(9, 9, 11, 0.1);
+  border-radius: 8px;
+  background: rgba(252, 252, 252, 0.72);
+  box-shadow: 0 10px 26px rgba(9, 9, 11, 0.1);
+}
+
+.page-perfil .login form {
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  color: #09090b;
+  font-size: 24px;
+  font-weight: 900;
 }

@@ -7,14 +7,14 @@
   gap: 18px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 16px 10px 104px;
+  padding: var(--page-inline-padding) var(--page-inline-padding) var(--page-bottom-padding);
 }
 
 .pontos-layout {
-  width: 100%;
-  max-width: 1120px;
+  width: min(100%, var(--page-max-width));
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .pontos-panel {
@@ -565,28 +565,9 @@
   overflow: hidden;
 }
 
-.page-pontos .home-page {
-  position: fixed;
-  left: 50%;
-  bottom: 14px;
-  z-index: 25;
-  width: calc(100% - 20px);
-  max-width: 380px;
-  height: auto;
-  flex: 0 0 auto;
-  gap: 0;
-  margin: 0;
-  transform: translateX(-50%);
-}
-
-.page-pontos .home-nav {
-  width: 100%;
-  margin-top: 0;
-}
-
 @media (min-width: 720px) {
   .page-pontos {
-    padding: 24px 22px 104px;
+    padding-block-start: 24px;
   }
 
   .points-hero {
@@ -611,9 +592,6 @@
     grid-template-columns: 1fr;
   }
 
-  .page-pontos .home-page {
-    max-width: 430px;
-  }
 }
 
 @media (min-width: 1024px) {
