@@ -1,0 +1,197 @@
+.page-agendar {
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 10px;
+}
+
+.agendar-layout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.agendar-card {
+  width: 100%;
+  max-width: 296px;
+  display: flex;
+  flex-direction: column;
+  flex: initial;
+  height: auto;
+  padding: 26px 20px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(9, 9, 11, 0.1);
+  background: rgba(252, 252, 252, 0.72);
+  box-shadow: 0 2px 8px rgba(9, 9, 11, 0.08);
+}
+
+.agendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.agendar-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.agendar-title {
+  color: #09090b;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.agendar-description {
+  max-width: 230px;
+  color: #555;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.agendar-close {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #303030;
+}
+
+.agendar-close i {
+  width: 15px;
+  height: 15px;
+}
+
+.consulta-field,
+.consulta-select-field {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.consulta-select-field {
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.consulta-label {
+  margin: 0;
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.agendar-card input.consulta-input,
+.agendar-card select.consulta-select {
+  width: 100%;
+  height: 34px;
+  margin: 0;
+  padding: 0 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(9, 9, 11, 0.18);
+  background: #fcfcfc;
+  color: #1f1f1f;
+  font-size: 13px;
+  box-shadow: 0 1px 2px rgba(9, 9, 11, 0.06);
+}
+
+.agendar-card input.consulta-input::placeholder {
+  color: #27272a;
+  opacity: 1;
+}
+
+.agendar-card input.consulta-input:focus,
+.agendar-card select.consulta-select:focus {
+  outline: none;
+  border-color: #0f2a3d;
+  box-shadow: 0 0 0 3px rgba(15, 42, 61, 0.12);
+}
+
+.agendar-card select.consulta-select {
+  appearance: none;
+  min-height: 36px;
+  padding-right: 36px;
+  background-image: linear-gradient(45deg, transparent 50%, #777 50%), linear-gradient(135deg, #777 50%, transparent 50%);
+  background-position: calc(100% - 18px) 15px, calc(100% - 13px) 15px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.consulta-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.consulta-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.agendar-card input.consulta-radio {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #09090b;
+}
+
+.agendar-card input.consulta-radio:checked::before {
+  width: 9px;
+  height: 9px;
+  background: #09090b;
+}
+
+.consulta-submit {
+  width: 100%;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: #0f2a3d;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.consulta-submit i {
+  width: 18px;
+  height: 18px;
+}
+
+.consulta-submit:hover {
+  filter: brightness(1.08);
+}
+
+.consulta-submit:active {
+  transform: scale(0.98);
+}
+
+.page-agendar .home-page {
+  height: auto;
+  max-width: 296px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .page-agendar {
+    padding-top: 10px;
+  }
+}

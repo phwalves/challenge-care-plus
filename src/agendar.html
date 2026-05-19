@@ -9,10 +9,66 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
-<body>
-    <main class="login">
-        <form action="#">
-            Agendar
+<body class="page-agendar">
+    <main class="agendar-layout">
+        <form class="agendar-card" action="#">
+            <div class="agendar-header">
+                <div class="agendar-title-group">
+                    <h2 class="agendar-title">Agendar Consulta</h2>
+                    <h4 class="agendar-description">Preencha os campos para agendar uma consulta.</h4>
+                </div>
+                <button class="agendar-close" type="button" aria-label="Fechar">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="consulta-field">
+                <label class="consulta-label" for="consulta-nome">Nome</label>
+                <input class="consulta-input" type="text" name="nome" id="consulta-nome" placeholder="Pedro Duarte">
+            </div>
+
+            <div class="consulta-field">
+                <label class="consulta-label" for="consulta-local">Local</label>
+                <input class="consulta-input" type="text" name="local" id="consulta-local" placeholder="@peduarte">
+            </div>
+
+            <div class="consulta-field">
+                <label class="consulta-label" for="consulta-data">Data</label>
+                <input class="consulta-input" type="text" name="data" id="consulta-data" placeholder="Jan 20 - Feb 09">
+            </div>
+
+            <div class="consulta-field">
+                <label class="consulta-label" for="consulta-horario">Horário</label>
+                <input class="consulta-input" type="time" name="horario" id="consulta-horario" value="10:00">
+            </div>
+
+            <div class="consulta-select-field">
+                <label class="consulta-label" for="consulta-especialidade">Especialidade</label>
+                <select class="consulta-select" name="especialidade" id="consulta-especialidade">
+                    <option value="">Selecione</option>
+                    <option value="clinico-geral">Clínico geral</option>
+                    <option value="cardiologia">Cardiologia</option>
+                    <option value="dermatologia">Dermatologia</option>
+                    <option value="pediatria">Pediatria</option>
+                </select>
+            </div>
+
+            <div class="consulta-options">
+                <label class="consulta-option" for="consulta-online">
+                    <input class="consulta-radio" type="radio" name="tipo-consulta" id="consulta-online" value="online">
+                    <span>Consulta on-line</span>
+                </label>
+
+                <label class="consulta-option" for="consulta-presencial">
+                    <input class="consulta-radio" type="radio" name="tipo-consulta" id="consulta-presencial" value="presencial" checked>
+                    <span>Consulta presencial</span>
+                </label>
+            </div>
+
+            <button class="consulta-submit" type="submit">
+                <i data-lucide="calendar-plus"></i>
+                <span>Agendar Consulta</span>
+            </button>
         </form>
     </main>
     <div class="home-page">
