@@ -5,13 +5,41 @@
   height: auto;
   min-height: 100vh;
   overflow-y: auto;
+<<<<<<< HEAD
   padding: 16px 10px 96px;
+=======
+  padding: 10px;
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 }
 
 .agendar-layout {
   width: 100%;
   display: flex;
   justify-content: center;
+  perspective: 1200px;
+}
+
+.agendar-flip {
+  position: relative;
+  width: 100%;
+  max-width: 296px;
+  min-height: 520px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+}
+
+.agendar-flip.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.agendar-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.agendar-face-back {
+  transform: rotateY(180deg);
 }
 
 .agendar-panel {
@@ -28,16 +56,28 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
+=======
+  flex: initial;
+  height: auto;
+  padding: 36px 30px 10px;
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
   border-radius: 6px;
   border: 1px solid rgba(9, 9, 11, 0.1);
   background: rgba(252, 252, 252, 0.72);
   box-shadow: 0 2px 8px rgba(9, 9, 11, 0.08);
 }
 
+<<<<<<< HEAD
 .agendar-card {
   flex: initial;
   height: auto;
   padding: 28px 20px 12px;
+=======
+.cancelar-card {
+  min-height: 342px;
+  padding: 28px 19px 10px;
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 }
 
 .agendar-header {
@@ -69,6 +109,29 @@
   line-height: 1.35;
 }
 
+<<<<<<< HEAD
+=======
+.agendar-close {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #303030;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.agendar-close:hover {
+  color: #0f2a3d;
+  transform: rotate(90deg);
+}
+
+.agendar-close i {
+  width: 15px;
+  height: 15px;
+}
+
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 .consulta-field,
 .consulta-select-field {
   display: grid;
@@ -196,10 +259,90 @@
   transform: scale(0.98);
 }
 
+<<<<<<< HEAD
 .consultas-section {
   display: flex;
   flex-direction: column;
   gap: 12px;
+=======
+.consulta-file-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.consulta-file-control {
+  width: 100%;
+  min-height: 36px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(9, 9, 11, 0.18);
+  background: #fcfcfc;
+  color: #09090b;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(9, 9, 11, 0.06);
+}
+
+.consulta-file-control strong {
+  min-width: 0;
+  color: #b0b0b0;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agendar-card input.consulta-file {
+  display: none;
+}
+
+.consulta-empty {
+  margin: -18px 0 22px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.consulta-cancelar {
+  width: 100%;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  border-radius: 6px;
+  background: #ff2f55;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.consulta-cancelar i {
+  width: 15px;
+  height: 15px;
+}
+
+.consulta-cancelar:hover {
+  filter: brightness(1.05);
+}
+
+.consulta-cancelar:active {
+  transform: scale(0.98);
+}
+
+.consulta-cancelar:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 }
 
 .consultas-header {

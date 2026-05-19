@@ -1,5 +1,6 @@
 (() => {
   const STORAGE_KEY = "carePlusConsultas";
+<<<<<<< HEAD
   const formAgendar = document.querySelector("#form-agendar");
   const consultasList = document.querySelector("#consultas-list");
   const consultasCount = document.querySelector("#consultas-count");
@@ -9,17 +10,32 @@
     "Sua consulta foi confirmada",
     "Você tem uma mensagem",
   ];
+=======
+  const flipCard = document.querySelector("#agendar-flip");
+  const formAgendar = document.querySelector("#form-agendar");
+  const formCancelar = document.querySelector("#form-cancelar");
+  const consultaSelect = document.querySelector("#consulta-cancelar");
+  const consultaTitleId = document.querySelector("#consulta-cancelar-id");
+  const emptyMessage = document.querySelector("#consulta-empty");
+  const fileInput = document.querySelector("#documento-justificativa");
+  const fileName = document.querySelector("#consulta-file-name");
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 
   const consultasMock = [
     {
       id: "78AF",
       nome: "Pedro Duarte",
       local: "@peduarte",
+<<<<<<< HEAD
       data: "2025-09-04",
+=======
+      data: "2026-06-10",
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
       horario: "10:00",
       especialidade: "Cardiologia",
       tipoConsulta: "Consulta presencial",
       status: "agendada",
+<<<<<<< HEAD
       mensagens: mensagensPadrao,
       notificacaoAtiva: false,
     },
@@ -33,6 +49,11 @@
     notificacaoAtiva: Boolean(consulta.notificacaoAtiva),
   });
 
+=======
+    },
+  ];
+
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
   const getConsultas = () => {
     const consultas = localStorage.getItem(STORAGE_KEY);
 
@@ -41,18 +62,23 @@
       return consultasMock;
     }
 
+<<<<<<< HEAD
     try {
       return JSON.parse(consultas).map(normalizarConsulta);
     } catch {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(consultasMock));
       return consultasMock;
     }
+=======
+    return JSON.parse(consultas);
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
   };
 
   const setConsultas = (consultas) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(consultas));
   };
 
+<<<<<<< HEAD
   const consultasAgendadas = () => (
     getConsultas().filter((consulta) => consulta.status === "agendada")
   );
@@ -278,6 +304,47 @@
     setConsultas(consultas);
     renderConsultas();
   };
+=======
+  const gerarId = () => {
+    const chars = "0123456789ABCDEF";
+    return Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  };
+
+  const consultasAgendadas = () => getConsultas().filter((consulta) => consulta.status === "agendada");
+
+  const atualizarCancelamento = () => {
+    const consultas = consultasAgendadas();
+    consultaSelect.innerHTML = "";
+
+    consultas.forEach((consulta) => {
+      const option = document.createElement("option");
+      option.value = consulta.id;
+      option.textContent = `#${consulta.id} - ${consulta.especialidade} às ${consulta.horario}`;
+      consultaSelect.appendChild(option);
+    });
+
+    const hasConsultas = consultas.length > 0;
+    consultaSelect.disabled = !hasConsultas;
+    formCancelar.querySelector(".consulta-cancelar").disabled = !hasConsultas;
+    emptyMessage.hidden = hasConsultas;
+    consultaTitleId.textContent = hasConsultas ? consultas[0].id : "----";
+  };
+
+  document.querySelectorAll("[data-flip-card]").forEach((button) => {
+    button.addEventListener("click", () => {
+      flipCard.classList.toggle("is-flipped");
+      atualizarCancelamento();
+    });
+  });
+
+  consultaSelect.addEventListener("change", () => {
+    consultaTitleId.textContent = consultaSelect.value || "----";
+  });
+
+  fileInput.addEventListener("change", () => {
+    fileName.textContent = fileInput.files[0]?.name || "Nenhum arquivo...";
+  });
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 
   formAgendar.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -292,13 +359,17 @@
       especialidade: formData.get("especialidade"),
       tipoConsulta: formData.get("tipoConsulta"),
       status: "agendada",
+<<<<<<< HEAD
       mensagens: ["Sua consulta foi confirmada"],
       notificacaoAtiva: false,
+=======
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
     };
 
     setConsultas([...getConsultas(), novaConsulta]);
     formAgendar.reset();
     document.querySelector("#consulta-presencial").checked = true;
+<<<<<<< HEAD
     renderConsultas();
   });
 
@@ -388,4 +459,36 @@
   });
 
   renderConsultas();
+=======
+    atualizarCancelamento();
+    consultaSelect.value = novaConsulta.id;
+    consultaTitleId.textContent = novaConsulta.id;
+    flipCard.classList.add("is-flipped");
+  });
+
+  formCancelar.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const consultaId = consultaSelect.value;
+    const consultas = getConsultas().map((consulta) => {
+      if (consulta.id !== consultaId) {
+        return consulta;
+      }
+
+      return {
+        ...consulta,
+        status: "cancelada",
+        motivoAusencia: document.querySelector("#motivo-ausencia").value,
+        documentoJustificativa: fileInput.files[0]?.name || "",
+      };
+    });
+
+    setConsultas(consultas);
+    formCancelar.reset();
+    fileName.textContent = "Nenhum arquivo...";
+    atualizarCancelamento();
+  });
+
+  atualizarCancelamento();
+>>>>>>> ffee8bcb7f3690e70d8a825fdb4706afa1a16f58
 })();
