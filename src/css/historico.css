@@ -14,6 +14,8 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  flex-direction: column;
+  gap: 32px;
 }
 
 .historico-card {
@@ -25,14 +27,6 @@
   border-radius: 6px;
   border: 1px solid rgba(9, 9, 11, 0.1);
   background: rgba(252, 252, 252, 0.72);
-}
-
-.historico-item.positivo{
-  background: #ceeaff;
-}
-
-.historico-item.negativo{
-  background: #ffcece;
 }
 
 .historico-header {

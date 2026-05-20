@@ -1,78 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Care Plus - Área Logada</title>
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body class="page-home">
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="page-home">
     <div class="home-page">
-        <div class="home-profile">
-            <div class="home-profile-section" id="profile">
-                <div class="home-profile-text">
-                    <h1>Olá, Username</h1>
-                    <h6>Seja bem-vindo(a)</h6>
-                </div>
-                <div class="home-profile-buttons">
-                    <button class="btn primary"><i data-lucide="calendar-check-2"></i>Agendar</button>
-                    <button class="btn secondary"><i data-lucide="circle-x"></i>Cancelar</button>
-                </div>
-            </div>
+      <div class="home-profile">
+        <div class="home-profile-section" id="profile">
+          <div class="home-profile-text">
+            <h1>Olá, Username</h1>
+            <h6>Seja bem-vindo(a)</h6>
+          </div>
         </div>
+      </div>
+    <section class="points-hero" id="points-hero">
+      <div class="hero-copy">
+        <span class="hero-kicker">Care Plus Home</span>
+        <h1 id="pontos-title">Veja suas notifações e programações</h1>
+      </div>
+    </section>
+      <div class="home-alerts">
         <div class="home-calendary">
-            <div class="home-calendary-nav">
+          <div class="home-calendary-nav">
             <button id="prev"><i data-lucide="arrow-left"></i></button>
             <h4 id="monthYear"></h4>
             <button id="next"><i data-lucide="chevron-right"></i></button>
-            </div>
-            <div class="home-calendary-view" id="calendar"></div>
+          </div>
+          <div class="home-calendary-view" id="calendar"></div>
         </div>
         <div class="home-notify">
-            <div class="home-notify-icon"><i data-lucide="circle-star"></i></div>
-            <div class="home-notify-mensage">
-                <h4>
-                    @emailuser 
-                </h4>
-                <h5>
-                    <span>CarePlus Rank</span>
-                    - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse animi autem harum dolorem adipisci, explicabo iste culpa similique ratione nihil dolorum nulla deleniti necessitatibus! Esse saepe sed inventore dignissimos similique?
-                </h5>
+            <div class="notify-body">
+                <div class="home-notify-unica">
+                  <div class="home-notify-icon">
+                    <i data-lucide="circle-star"></i>
+                  </div>
+                  <div class="home-notify-mensage">
+                    <h4>@emailuser</h4>
+                    <h5>
+                      <span>CarePlus Rank</span>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
+                      animi autem harum dolorem adipisci, explicabo iste culpa
+                      similique ratione nihil dolorum nulla deleniti necessitatibus!
+                      Esse saepe sed inventore dignissimos similique?
+                    </h5>
+                  </div>
+                </div>
+                <div class="home-notify-unica">
+                  <div class="home-notify-icon">
+                    <i data-lucide="circle-star"></i>
+                  </div>
+                  <div class="home-notify-mensage">
+                    <h4>@emailuser</h4>
+                    <h5>
+                      <span>CarePlus Rank</span>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
+                      animi autem harum dolorem adipisci, explicabo iste culpa
+                      similique ratione nihil dolorum nulla deleniti necessitatibus!
+                      Esse saepe sed inventore dignissimos similique?
+                    </h5>
+                  </div>
+                </div>
+                <div class="home-notify-unica">
+                  <div class="home-notify-icon">
+                    <i data-lucide="circle-star"></i>
+                  </div>
+                  <div class="home-notify-mensage">
+                    <h4>@emailuser</h4>
+                    <h5>
+                      <span>CarePlus Rank</span>
+                      - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
+                      animi autem harum dolorem adipisci, explicabo iste culpa
+                      similique ratione nihil dolorum nulla deleniti necessitatibus!
+                      Esse saepe sed inventore dignissimos similique?
+                    </h5>
+                  </div>
+                </div>
             </div>
         </div>
-        <nav class="home-nav" aria-label="Menu principal">
-            <a id="button-home" class="nav-item active" href="index.html" data-nav="home" aria-label="Home">
-                <i data-lucide="house"></i>
-                <span>Home</span>
-            </a>
+      </div>
+      <nav class="home-nav" aria-label="Menu principal">
+        <a
+          id="button-home"
+          class="nav-item active"
+          href="index.html"
+          data-nav="home"
+          aria-label="Home"
+        >
+          <i data-lucide="house"></i>
+          <span>Home</span>
+        </a>
 
-            <a id="button-agendar" class="nav-item" href="agendar.html" data-nav="agendar" aria-label="Agendar">
-                <i data-lucide="calendar-check-2"></i>
-                <span>Agendar</span>
-            </a>
+        <a
+          id="button-agendar"
+          class="nav-item"
+          href="agendar.html"
+          data-nav="agendar"
+          aria-label="Agendar"
+        >
+          <i data-lucide="calendar-check-2"></i>
+          <span>Agendar</span>
+        </a>
 
-            <a id="button-historico" class="nav-item" href="historico.html" data-nav="historico" aria-label="Histórico">
-                <i data-lucide="history"></i>
-                <span>Histórico</span>
-            </a>
+        <a
+          id="button-historico"
+          class="nav-item"
+          href="historico.html"
+          data-nav="historico"
+          aria-label="Histórico"
+        >
+          <i data-lucide="history"></i>
+          <span>Histórico</span>
+        </a>
 
-            <a id="button-pontos" class="nav-item" href="pontos.html" data-nav="pontos" aria-label="Pontos">
-                <i data-lucide="trophy"></i>
-                <span>Pontos</span>
-            </a>
+        <a
+          id="button-pontos"
+          class="nav-item"
+          href="pontos.html"
+          data-nav="pontos"
+          aria-label="Pontos"
+        >
+          <i data-lucide="trophy"></i>
+          <span>Pontos</span>
+        </a>
 
-            <a id="button-perfil" class="nav-item" href="perfil.html" data-nav="perfil" aria-label="Perfil">
-                <i data-lucide="user"></i>
-                <span>Perfil</span>
-            </a>
-        </nav>
+        <a
+          id="button-perfil"
+          class="nav-item"
+          href="perfil.html"
+          data-nav="perfil"
+          aria-label="Perfil"
+        >
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </a>
+      </nav>
     </div>
-<script src="./js/profilePic.js"></script>
-<script src="./js/calendary.js"></script>
-<script src="./js/nav.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script>
-  lucide.createIcons();
-</script>
-</body>
+    <script src="./js/profilePic.js"></script>
+    <script src="./js/calendary.js"></script>
+    <script src="./js/nav.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>

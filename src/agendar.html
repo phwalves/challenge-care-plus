@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR"> 
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -13,8 +13,22 @@
 
   <body class="page-agendar">
     <main class="agendar-layout">
+      <section class="points-hero" id="points-hero">
+        <div class="hero-copy">
+          <span class="hero-kicker">Care Plus Agendar</span>
+          <h1 id="pontos-title">Consulte e marque consultas na Care Plus</h1>
+          <p id="hero-description">
+            De maneira fácil e rápida marque uma nova consulta, veja os detalhes
+            de suas consultas marcadas e desmarque uma consulta caso tenha algum
+            imprevisto.
+          </p>
+        </div>
+      </section>
       <section class="agendar-panel">
-        <section class="agendar-accordion is-open" data-accordion-section="form">
+        <section
+          class="agendar-accordion is-open"
+          data-accordion-section="form"
+        >
           <button
             class="accordion-header"
             type="button"
@@ -35,27 +49,63 @@
             <form class="agendar-card" id="form-agendar" action="#">
               <div class="consulta-field">
                 <label class="consulta-label" for="consulta-nome">Nome</label>
-                <input class="consulta-input" type="text" name="nome" id="consulta-nome" placeholder="Pedro Duarte" required />
+                <input
+                  class="consulta-input"
+                  type="text"
+                  name="nome"
+                  id="consulta-nome"
+                  placeholder="Pedro Duarte"
+                  required
+                />
               </div>
 
               <div class="consulta-field">
                 <label class="consulta-label" for="consulta-local">Local</label>
-                <input class="consulta-input" type="text" name="local" id="consulta-local" placeholder="@peduarte" required />
+                <input
+                  class="consulta-input"
+                  type="text"
+                  name="local"
+                  id="consulta-local"
+                  placeholder="@peduarte"
+                  required
+                />
               </div>
 
               <div class="consulta-field">
                 <label class="consulta-label" for="consulta-data">Data</label>
-                <input class="consulta-input" type="date" name="data" id="consulta-data" required />
+                <input
+                  class="consulta-input"
+                  type="date"
+                  name="data"
+                  id="consulta-data"
+                  required
+                />
               </div>
 
               <div class="consulta-field">
-                <label class="consulta-label" for="consulta-horario">Horário</label>
-                <input class="consulta-input" type="time" name="horario" id="consulta-horario" value="10:00" required />
+                <label class="consulta-label" for="consulta-horario"
+                  >Horário</label
+                >
+                <input
+                  class="consulta-input"
+                  type="time"
+                  name="horario"
+                  id="consulta-horario"
+                  value="10:00"
+                  required
+                />
               </div>
 
               <div class="consulta-select-field">
-                <label class="consulta-label" for="consulta-especialidade">Especialidade</label>
-                <select class="consulta-select" name="especialidade" id="consulta-especialidade" required>
+                <label class="consulta-label" for="consulta-especialidade"
+                  >Especialidade</label
+                >
+                <select
+                  class="consulta-select"
+                  name="especialidade"
+                  id="consulta-especialidade"
+                  required
+                >
                   <option value="">Selecione</option>
                   <option value="Clínico geral">Clínico geral</option>
                   <option value="Cardiologia">Cardiologia</option>
@@ -66,12 +116,25 @@
 
               <div class="consulta-options">
                 <label class="consulta-option" for="consulta-online">
-                  <input class="consulta-radio" type="radio" name="tipoConsulta" id="consulta-online" value="Consulta on-line" />
+                  <input
+                    class="consulta-radio"
+                    type="radio"
+                    name="tipoConsulta"
+                    id="consulta-online"
+                    value="Consulta on-line"
+                  />
                   <span>Consulta on-line</span>
                 </label>
 
                 <label class="consulta-option" for="consulta-presencial">
-                  <input class="consulta-radio" type="radio" name="tipoConsulta" id="consulta-presencial" value="Consulta presencial" checked />
+                  <input
+                    class="consulta-radio"
+                    type="radio"
+                    name="tipoConsulta"
+                    id="consulta-presencial"
+                    value="Consulta presencial"
+                    checked
+                  />
                   <span>Consulta presencial</span>
                 </label>
               </div>
@@ -93,8 +156,12 @@
             aria-controls="consultas-panel"
           >
             <div>
-              <h2 class="consultas-title" id="consultas-title">Consultas agendadas</h2>
-              <p class="consultas-count" id="consultas-count">Verificando consultas salvas...</p>
+              <h2 class="consultas-title" id="consultas-title">
+                Consultas agendadas
+              </h2>
+              <p class="consultas-count" id="consultas-count">
+                Verificando consultas salvas...
+              </p>
             </div>
             <i data-lucide="chevron-down"></i>
           </button>
@@ -110,27 +177,57 @@
     </main>
     <div class="home-page">
       <nav class="home-nav" aria-label="Menu principal">
-        <a id="button-home" class="nav-item" href="index.html" data-nav="home" aria-label="Home">
+        <a
+          id="button-home"
+          class="nav-item"
+          href="index.html"
+          data-nav="home"
+          aria-label="Home"
+        >
           <i data-lucide="house"></i>
           <span>Home</span>
         </a>
 
-        <a id="button-agendar" class="nav-item active" href="agendar.html" data-nav="agendar" aria-label="Agendar">
+        <a
+          id="button-agendar"
+          class="nav-item active"
+          href="agendar.html"
+          data-nav="agendar"
+          aria-label="Agendar"
+        >
           <i data-lucide="calendar-check-2"></i>
           <span>Agendar</span>
         </a>
 
-        <a id="button-historico" class="nav-item" href="historico.html" data-nav="historico" aria-label="Histórico">
+        <a
+          id="button-historico"
+          class="nav-item"
+          href="historico.html"
+          data-nav="historico"
+          aria-label="Histórico"
+        >
           <i data-lucide="history"></i>
           <span>Histórico</span>
         </a>
 
-        <a id="button-pontos" class="nav-item" href="pontos.html" data-nav="pontos" aria-label="Pontos">
+        <a
+          id="button-pontos"
+          class="nav-item"
+          href="pontos.html"
+          data-nav="pontos"
+          aria-label="Pontos"
+        >
           <i data-lucide="trophy"></i>
           <span>Pontos</span>
         </a>
 
-        <a id="button-perfil" class="nav-item" href="perfil.html" data-nav="perfil" aria-label="Perfil">
+        <a
+          id="button-perfil"
+          class="nav-item"
+          href="perfil.html"
+          data-nav="perfil"
+          aria-label="Perfil"
+        >
           <i data-lucide="user"></i>
           <span>Perfil</span>
         </a>

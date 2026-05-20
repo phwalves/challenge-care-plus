@@ -1,15 +1,15 @@
 (() => {
   const userPoints = 295;
-  const defaultSelectedRankId = "pro";
+  const defaultSelectedRankId = "gold";
 
   const rankConfig = [
     {
-      id: "start",
-      name: "Care Start",
+      id: "gold",
+      name: "Care Gold",
       threshold: 0,
-      icon: "rocket",
-      color: "#2d76d2",
-      soft: "#dff1ff",
+      icon: "medal",
+      color: "#d4a017",
+      soft: "#fff5d6",
       benefits: [
         ["bell-ring", "Lembretes inteligentes", "Alertas simples para você não perder consultas importantes."],
         ["calendar-check-2", "Check-in guiado", "Orientações rápidas antes da consulta agendada."],
@@ -17,49 +17,23 @@
       ],
     },
     {
-      id: "plus",
-      name: "Care Plus",
-      threshold: 90,
-      icon: "heart-pulse",
-      color: "#168a63",
-      soft: "#ddf8ed",
-      benefits: [
-        ["badge-check", "Confirmação prioritária", "Suas confirmações entram em destaque no fluxo de atendimento."],
-        ["message-circle", "Mensagens preventivas", "Receba lembretes extras quando houver risco de no-show."],
-        ["sparkles", "Bônus de frequência", "Ganhe mais pontos ao manter uma rotina consistente."],
-      ],
-    },
-    {
-      id: "pro",
-      name: "Care Pro",
-      threshold: 220,
-      icon: "shield-check",
-      color: "#3c78ff",
-      soft: "#e4edff",
-      benefits: [
-        ["shield-check", "Proteção contra perda", "Mais contexto para justificar ausências sem perder o ritmo."],
-        ["refresh-cw", "Reagendamento facilitado", "Fluxo mais rápido para mudar consultas com antecedência."],
-        ["gift", "Recompensas sazonais", "Acesso antecipado a campanhas de engajamento Care Plus."],
-      ],
-    },
-    {
       id: "platinum",
       name: "Care Platinum",
-      threshold: 360,
-      icon: "gem",
+      threshold: 300,
+      icon: "shield-check",
       color: "#6a5cff",
       soft: "#ece8ff",
       benefits: [
-        ["gem", "Benefícios premium", "Descontos e vantagens em serviços parceiros selecionados."],
+        ["badge-check", "Confirmação prioritária", "Suas confirmações entram em destaque no fluxo de atendimento."],
+        ["sparkles", "Bônus de frequência", "Ganhe mais pontos ao manter uma rotina consistente."],
         ["headphones", "Suporte preferencial", "Atendimento com prioridade em situações sensíveis."],
-        ["calendar-clock", "Janelas flexíveis", "Mais opções para organizar sua agenda de consultas."],
       ],
     },
     {
       id: "diamond",
       name: "Care Diamond",
-      threshold: 620,
-      icon: "diamond",
+      threshold: 600,
+      icon: "gem",
       color: "#0f2a3d",
       soft: "#dcebf4",
       benefits: [
@@ -167,10 +141,14 @@
   const rangeStart = currentRank.threshold;
   const rangeEnd = nextRank.threshold;
   const rangeTotal = Math.max(rangeEnd - rangeStart, 1);
+
   const progressPercent = isMaxRank
     ? 100
     : clamp(Math.round(((userPoints - rangeStart) / rangeTotal) * 100), 0, 100);
-  const missingPoints = isMaxRank ? 0 : Math.max(nextRank.threshold - userPoints, 0);
+
+  const missingPoints = isMaxRank
+    ? 0
+    : Math.max(nextRank.threshold - userPoints, 0);
 
   const refreshIcons = () => {
     if (window.lucide) {
@@ -193,14 +171,18 @@
   const renderHero = () => {
     root.style.setProperty("--active-rank-color", currentRank.color);
     root.style.setProperty("--active-rank-soft", currentRank.soft);
+
     hero.style.setProperty("--active-rank-color", currentRank.color);
     hero.style.setProperty("--active-rank-soft", currentRank.soft);
 
     currentRankIcon.setAttribute("data-lucide", currentRank.icon);
+
     currentRankName.textContent = currentRank.name;
+
     currentRankSummary.textContent = isMaxRank
       ? "Você chegou ao topo da jornada Care Plus."
       : `${missingPoints} pontos para desbloquear ${nextRank.name}.`;
+
     heroNextChip.textContent = isMaxRank
       ? "Rank máximo desbloqueado"
       : `Próximo: ${nextRank.name}`;
@@ -209,9 +191,14 @@
   const renderProgress = () => {
     currentPoints.textContent = userPoints;
     pointsMissing.textContent = missingPoints;
+
     progress.setAttribute("aria-valuenow", String(progressPercent));
+
     progressFill.style.width = `${progressPercent}%`;
-    currentRankThreshold.textContent = `${currentRank.name} - ${currentRank.threshold} pts`;
+
+    currentRankThreshold.textContent =
+      `${currentRank.name} - ${currentRank.threshold} pts`;
+
     nextRankThreshold.textContent = isMaxRank
       ? "Jornada completa"
       : `${nextRank.name} - ${nextRank.threshold} pts`;
@@ -219,11 +206,13 @@
 
   const renderRankTrack = () => {
     rankTrack.innerHTML = rankConfig.map((rank, index) => {
-      const stateClass = index < currentRankIndex
-        ? "is-complete"
-        : index === currentRankIndex
-          ? "is-current"
-          : "is-locked";
+      const stateClass =
+        index < currentRankIndex
+          ? "is-complete"
+          : index === currentRankIndex
+            ? "is-current"
+            : "is-locked";
+
       const isSelected = rank.id === selectedRankId;
 
       return `
@@ -237,45 +226,60 @@
           <span class="rank-step-medal">
             <i data-lucide="${rank.icon}"></i>
           </span>
+
           <span class="rank-step-label">
             <strong>${rank.name}</strong>
             <small>${statusLabel(index)}</small>
           </span>
-          <span class="rank-step-points">${rank.threshold} pts</span>
+
+          <span class="rank-step-points">
+            ${rank.threshold} pts
+          </span>
         </button>
       `;
     }).join("");
   };
 
   const renderBenefits = () => {
-    const selectedRank = rankConfig.find((rank) => rank.id === selectedRankId) || currentRank;
-    const selectedIndex = rankConfig.findIndex((rank) => rank.id === selectedRank.id);
+    const selectedRank =
+      rankConfig.find((rank) => rank.id === selectedRankId) || currentRank;
 
-    benefitsTitle.textContent = `Benefícios do ${selectedRank.name}`;
-    benefitsDescription.textContent = selectedIndex > currentRankIndex
-      ? `Desbloqueie ao chegar em ${selectedRank.threshold} pontos.`
-      : selectedRank.id === currentRank.id
-        ? "Você já está aproveitando este nível."
-        : "Benefícios já desbloqueados na sua jornada.";
+    const selectedIndex =
+      rankConfig.findIndex((rank) => rank.id === selectedRank.id);
 
-    selectedBenefits.innerHTML = selectedRank.benefits.map(([icon, title, description]) => `
-      <article class="benefit-item">
-        <i data-lucide="${icon}"></i>
-        <div>
-          <strong>${title}</strong>
-          <p>${description}</p>
-        </div>
-      </article>
-    `).join("");
+    benefitsTitle.textContent =
+      `Benefícios do ${selectedRank.name}`;
+
+    benefitsDescription.textContent =
+      selectedIndex > currentRankIndex
+        ? `Desbloqueie ao chegar em ${selectedRank.threshold} pontos.`
+        : selectedRank.id === currentRank.id
+          ? "Você já está aproveitando este nível."
+          : "Benefícios já desbloqueados na sua jornada.";
+
+    selectedBenefits.innerHTML = selectedRank.benefits.map(
+      ([icon, title, description]) => `
+        <article class="benefit-item">
+          <i data-lucide="${icon}"></i>
+
+          <div>
+            <strong>${title}</strong>
+            <p>${description}</p>
+          </div>
+        </article>
+      `
+    ).join("");
   };
 
   const renderMissionItem = (mission, type) => `
     <article class="mission-item${type === "loss" ? " negative" : ""}">
       <i data-lucide="${mission.icon}"></i>
+
       <div>
         <p>${mission.label}</p>
         <small>${mission.detail}</small>
       </div>
+
       <strong>${mission.points}</strong>
     </article>
   `;
@@ -298,7 +302,9 @@
   const syncSelectedRank = () => {
     document.querySelectorAll(".rank-step").forEach((button) => {
       const isSelected = button.dataset.rankId === selectedRankId;
+
       button.classList.toggle("is-selected", isSelected);
+
       button.setAttribute("aria-pressed", String(isSelected));
     });
   };
@@ -311,7 +317,9 @@
     }
 
     modal.hidden = false;
+
     document.body.classList.add("modal-open");
+
     refreshIcons();
   };
 
@@ -319,6 +327,7 @@
     document.querySelectorAll(".pontos-modal").forEach((modal) => {
       modal.hidden = true;
     });
+
     document.body.classList.remove("modal-open");
   };
 
@@ -330,8 +339,11 @@
     }
 
     selectedRankId = button.dataset.rankId;
+
     syncSelectedRank();
+
     renderBenefits();
+
     refreshIcons();
   });
 
@@ -347,8 +359,12 @@
 
   missionButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      missionButtons.forEach((item) => item.classList.remove("active"));
+      missionButtons.forEach((item) => {
+        item.classList.remove("active");
+      });
+
       button.classList.add("active");
+
       renderModalMissions(button.dataset.missionTab);
     });
   });

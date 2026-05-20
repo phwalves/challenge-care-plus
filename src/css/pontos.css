@@ -7,7 +7,8 @@
   gap: 18px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: var(--page-inline-padding) var(--page-inline-padding) var(--page-bottom-padding);
+  padding: var(--page-inline-padding) var(--page-inline-padding)
+    var(--page-bottom-padding);
 }
 
 .pontos-layout {
@@ -26,6 +27,7 @@
 
 .points-hero,
 .panel-surface {
+  height: min-content;
   width: 100%;
   border: 1px solid rgba(9, 9, 11, 0.1);
   border-radius: 8px;
@@ -39,8 +41,11 @@
   overflow: hidden;
   padding: 18px;
   color: #fcfcfc;
-  background:
-    linear-gradient(135deg, rgba(15, 42, 61, 0.98), rgba(27, 83, 112, 0.95)),
+  background: linear-gradient(
+      135deg,
+      rgba(15, 42, 61, 0.98),
+      rgba(27, 83, 112, 0.95)
+    ),
     linear-gradient(90deg, var(--active-rank-soft, #dff1ff), transparent);
 }
 
@@ -99,10 +104,7 @@
   border-radius: 6px;
   font-size: 13px;
   font-weight: 800;
-  transition:
-    transform 0.2s,
-    filter 0.2s,
-    background 0.2s;
+  transition: transform 0.2s, filter 0.2s, background 0.2s;
 }
 
 .hero-action.primary {
@@ -153,8 +155,11 @@
   padding: 18px;
   border-radius: 8px;
   border: 1px solid rgba(252, 252, 252, 0.18);
-  background:
-    linear-gradient(180deg, rgba(252, 252, 252, 0.18), rgba(252, 252, 252, 0.08)),
+  background: linear-gradient(
+      180deg,
+      rgba(252, 252, 252, 0.18),
+      rgba(252, 252, 252, 0.08)
+    ),
     rgba(9, 9, 11, 0.08);
 }
 
@@ -172,11 +177,13 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background:
-    linear-gradient(145deg, #fcfcfc, var(--active-rank-soft, #dff1ff));
+  background: linear-gradient(
+    145deg,
+    #fcfcfc,
+    var(--active-rank-soft, #dff1ff)
+  );
   color: var(--active-rank-color, #2368ff);
-  box-shadow:
-    inset 0 0 0 8px rgba(255, 255, 255, 0.52),
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.52),
     0 16px 30px rgba(0, 0, 0, 0.22);
 }
 
@@ -275,7 +282,7 @@
 }
 
 .progress-shell {
-  height: 16px;
+  height: 12px;
   overflow: hidden;
   border-radius: 999px;
   border: 1px solid rgba(9, 9, 11, 0.12);
@@ -288,9 +295,9 @@
   height: 100%;
   display: block;
   border-radius: inherit;
-  background:
-    linear-gradient(90deg, var(--active-rank-color, #2368ff), #0f2a3d);
+  background: linear-gradient(90deg, #c4e9ff, #0070bf);
   transition: width 0.55s ease;
+  box-shadow: inset -1px 0px 6px 1px #00d0ffb5;
 }
 
 .progress-labels {
@@ -327,10 +334,7 @@
   background: #fcfcfc;
   text-align: left;
   box-shadow: 0 2px 8px rgba(9, 9, 11, 0.06);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    border-color 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .rank-step.is-selected {
@@ -339,19 +343,15 @@
 }
 
 .rank-step.is-current {
-  background:
-    linear-gradient(90deg, var(--rank-soft), #fcfcfc 58%);
+  background: linear-gradient(90deg, var(--rank-soft), #fcfcfc 58%);
 }
 
 .rank-step.is-current .rank-step-medal {
-  box-shadow:
-    inset 0 0 0 2px #fcfcfc,
-    0 0 0 3px var(--rank-soft);
+  box-shadow: inset 0 0 0 2px #fcfcfc, 0 0 0 3px var(--rank-soft);
 }
 
 .rank-step.is-complete .rank-step-medal {
-  background:
-    linear-gradient(145deg, #fcfcfc, var(--rank-soft));
+  background: linear-gradient(145deg, #fcfcfc, var(--rank-soft));
 }
 
 .rank-step.is-locked {
@@ -591,7 +591,6 @@
   .rank-track {
     grid-template-columns: 1fr;
   }
-
 }
 
 @media (min-width: 1024px) {

@@ -1,54 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, max-scale=1.0"
+    />
     <title>Care Plus - Perfil</title>
 
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-<body class="page-perfil">
-    <main class="login">
-        <form action="#">
-            Perfil
-        </form>
+  <body class="page-perfil">
+    <main class="perfil-layout">
+      <section class="perfil-card">
+        <section class="points-hero" id="points-hero">
+          <div class="hero-copy-config">
+            <div class="perfil-avatar">
+              <i data-lucide="user-round"></i>
+            </div>
+            <div>
+                <span class="hero-kicker">Membro Care Platinum</span>
+                <h1 id="pontos-title">Lucas Almeida</h1>
+                <p id="hero-description">Membro Care Platinum</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="perfil-section">
+          <div class="section-title">
+            <i data-lucide="badge-check"></i>
+            <span>Informações da conta</span>
+          </div>
+
+          <div class="perfil-fields">
+            <label class="perfil-field">
+              <span>Nome completo</span>
+              <input type="text" value="Lucas Almeida" />
+            </label>
+
+            <label class="perfil-field">
+              <span>E-mail</span>
+              <input type="email" value="lucas@email.com" />
+            </label>
+
+            <label class="perfil-field">
+              <span>Telefone</span>
+              <input type="tel" value="(11) 99999-9999" />
+            </label>
+          </div>
+        </section>
+
+        <section class="perfil-section">
+          <div class="section-title">
+            <i data-lucide="shield"></i>
+            <span>Segurança</span>
+          </div>
+
+          <div class="perfil-options">
+            <button type="button" class="perfil-option">
+              <div>
+                <strong>Alterar senha</strong>
+                <small>Atualize sua senha de acesso</small>
+              </div>
+
+              <i data-lucide="chevron-right"></i>
+            </button>
+
+            <button type="button" class="perfil-option">
+              <div>
+                <strong>Autenticação</strong>
+                <small>Gerencie dispositivos conectados</small>
+              </div>
+
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <section class="perfil-section">
+          <div class="section-title">
+            <i data-lucide="bell"></i>
+            <span>Preferências</span>
+          </div>
+
+          <div class="perfil-switches">
+            <label class="switch-item">
+              <div>
+                <strong>Notificações</strong>
+                <small>Receber lembretes e novidades</small>
+              </div>
+
+              <input type="checkbox" checked />
+            </label>
+
+            <label class="switch-item">
+              <div>
+                <strong>Modo silencioso</strong>
+                <small>Reduz alertas não essenciais</small>
+              </div>
+
+              <input type="checkbox" />
+            </label>
+          </div>
+        </section>
+
+        <button class="perfil-save" type="submit">
+          <i data-lucide="save"></i>
+          <span>Salvar alterações</span>
+        </button>
+      </section>
     </main>
+
     <div class="home-page">
-        <nav class="home-nav" aria-label="Menu principal">
-            <a id="button-home" class="nav-item" href="index.html" data-nav="home" aria-label="Home">
-                <i data-lucide="house"></i>
-                <span>Home</span>
-            </a>
+      <nav class="home-nav" aria-label="Menu principal">
+        <a
+          id="button-home"
+          class="nav-item"
+          href="index.html"
+          data-nav="home"
+          aria-label="Home"
+        >
+          <i data-lucide="house"></i>
+          <span>Home</span>
+        </a>
 
-            <a id="button-agendar" class="nav-item" href="agendar.html" data-nav="agendar" aria-label="Agendar">
-                <i data-lucide="calendar-check-2"></i>
-                <span>Agendar</span>
-            </a>
+        <a
+          id="button-agendar"
+          class="nav-item"
+          href="agendar.html"
+          data-nav="agendar"
+          aria-label="Agendar"
+        >
+          <i data-lucide="calendar-check-2"></i>
+          <span>Agendar</span>
+        </a>
 
-            <a id="button-historico" class="nav-item" href="historico.html" data-nav="historico" aria-label="Histórico">
-                <i data-lucide="history"></i>
-                <span>Histórico</span>
-            </a>
+        <a
+          id="button-historico"
+          class="nav-item"
+          href="historico.html"
+          data-nav="historico"
+          aria-label="Histórico"
+        >
+          <i data-lucide="history"></i>
+          <span>Histórico</span>
+        </a>
 
-            <a id="button-pontos" class="nav-item" href="pontos.html" data-nav="pontos" aria-label="Pontos">
-                <i data-lucide="trophy"></i>
-                <span>Pontos</span>
-            </a>
+        <a
+          id="button-pontos"
+          class="nav-item"
+          href="pontos.html"
+          data-nav="pontos"
+          aria-label="Pontos"
+        >
+          <i data-lucide="trophy"></i>
+          <span>Pontos</span>
+        </a>
 
-            <a id="button-perfil" class="nav-item active" href="perfil.html" data-nav="perfil" aria-label="Perfil">
-                <i data-lucide="user"></i>
-                <span>Perfil</span>
-            </a>
-        </nav>
+        <a
+          id="button-perfil"
+          class="nav-item active"
+          href="perfil.html"
+          data-nav="perfil"
+          aria-label="Perfil"
+        >
+          <i data-lucide="user"></i>
+          <span>Perfil</span>
+        </a>
+      </nav>
     </div>
+
     <script src="./js/formControler.js"></script>
     <script src="./js/nav.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-    lucide.createIcons();
-    </script>
-</body>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
 </html>

@@ -2,15 +2,33 @@
   width: 100%;
   max-width: var(--page-max-width);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   height: auto;
-  padding: clamp(16px, 3vw, 22px);
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 8px;
   border: 0.5px solid #09090b21;
   background: #fcfcfc;
-  box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.1);
+}
+
+.notify-body{
+  gap: 22px;
+  overflow-y: scroll;
+  max-height: 305px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.home-notify-unica {
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .home-notify-icon {

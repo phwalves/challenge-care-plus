@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: flex-start;
   overflow-y: auto;
-  padding: var(--page-inline-padding) var(--page-inline-padding) var(--page-bottom-padding);
+  padding: var(--page-inline-padding) var(--page-inline-padding)
+    var(--page-bottom-padding);
 }
 
 .page-home .home-page {
@@ -13,7 +14,7 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  gap: clamp(16px, 3vw, 32px);
+  gap: 32px;
   margin: 0 auto;
 }
 
@@ -29,8 +30,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 14px;
-  padding: clamp(18px, 4vw, 32px);
+  gap: 32px;
+  padding: 18px;
   border-radius: clamp(18px, 4vw, 36px) clamp(18px, 4vw, 36px) 12px 12px;
   border: 0.5px solid #dcdcdc;
   background-size: cover;
@@ -80,10 +81,7 @@
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition:
-    filter 0.2s ease,
-    transform 0.2s ease,
-    background 0.2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
 
 .btn i {
@@ -129,7 +127,8 @@
   align-items: center;
   justify-content: flex-start;
   overflow-y: auto;
-  padding: var(--page-inline-padding) var(--page-inline-padding) var(--page-bottom-padding);
+  padding: var(--page-inline-padding) var(--page-inline-padding)
+    var(--page-bottom-padding);
 }
 
 .page-perfil .login {
@@ -151,4 +150,20 @@
   color: #09090b;
   font-size: 24px;
   font-weight: 900;
+}
+
+.home-alerts {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 32px;
+}
+
+@media (max-width: 720px) {
+  .home-alerts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
 }
